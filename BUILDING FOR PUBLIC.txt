@@ -1,0 +1,80 @@
+BUILDING FOR PUBLIC
+
+All source files need to be added, edited and deleted from the pre-public folder.
+
+When running the build command, all source files with be traced for dependencies, uglified, and stored (html files copied) to the public folder.
+
+** Build command
+Running the build command requires NodeJS to be installed:
+<pre>
+node tools/r.js -o tools/build.js
+</pre>
+
+** Build config
+The configuration for the build is inside build.js
+
+e.g.
+{
+    appDir: '../pre-public',
+    mainConfigFile: '../pre-public/js/common.js',
+    dir: '../public',
+	optimizeCss: "standard",
+    modules: [
+        //First set up the common build layer.
+        {
+            //module names are relative to baseUrl
+            name: '../common',
+            //List common dependencies here. Only need to list
+            //top level dependencies, "include" will find
+            //nested dependencies.
+            include: ['jquery',
+                      'app/lib',
+                      'app/controller/Base',
+                      'app/model/Base',
+					  'app/modelController/Base',
+					  'app/modelService/Base',
+					  'app/serviceBus/Base',
+					  'app/view/Base',
+					  'app/viewController/Base',
+					  'app/viewService/Base'
+            ]
+        },
+        //Now set up a build layer for each main layer, but exclude
+        //the common one. "exclude" will exclude nested
+        //the nested, built dependencies from "common". Any
+        //"exclude" that includes built modules should be
+        //listed before the build layer that wants to exclude it.
+        //The "page1" and "page2" modules are **not** the targets of
+        //the optimization, because shim config is in play, and
+        //shimmed dependencies need to maintain their load order.
+        //In this example, common.js will hold jquery, so backbone
+        //needs to be delayed from loading until common.js finishes.
+        //That loading sequence is controlled in page1.js.
+        {
+            //module names are relative to baseUrl/paths config
+            name: 'app/main1',
+            exclude: ['../common']
+        },
+        {
+            //module names are relative to baseUrl
+            name: 'app/main2',
+            exclude: ['../common']
+        },
+        {
+            //module names are relative to baseUrl
+            name: 'app/main3',
+            exclude: ['../common']
+        }
+    ]
+}
+
+** Base files for controller, model, view etc.
+The Base files will be attached to the common file, all controllers, models, views, etc have access to them.
+
+
+
+
+
+See also:
+https://github.com/requirejs/example-multipage-shim
+http://tech.pro/blog/1639/using-rjs-to-optimize-your-requirejs-project
