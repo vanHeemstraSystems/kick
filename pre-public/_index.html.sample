@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<!-- Title here -->
-		<title>Hello to Mask</title>
+		<title>Hello to Kick</title>
 		<!-- Description, Keywords and Author -->
 		<meta name="description" content="Your description">
 		<meta name="keywords" content="Your,Keywords">
@@ -33,9 +33,13 @@
 							<h3>Categories</h3>
 							<ul>
 								<li><a href="#home">Home</a></li>
-								<li><a href="/pages/mydefaultpage/admin.html">Admin</a></li>
-								<li><a href="/pages/mydefaultpage/commerce.html">Commerce</a></li>
-								<li><a href="/pages/mydefaultpage/non-commerce.html">Non-Commerce</a></li>
+								<li><a href="/pages/mydefaultpage/mask.html">Mask</a></li>
+								<li><a href="/pages/mydefaultpage/skin.html">Skin</a></li>
+								<li><a href="/pages/mydefaultpage/core.html">Core</a></li>
+								<li><a href="/pages/mydefaultpage/flow.html">Flow</a></li>
+								<li><a href="/pages/mydefaultpage/chat.html">Chat</a></li>
+								<li><a href="/pages/mydefaultpage/bits.html">Bits</a></li>
+								<li><a href="/pages/mydefaultpage/reap.html">Reap</a></li>
 							</ul>
 						</div>
 						
@@ -45,9 +49,9 @@
 						<div class="mainbar">
 						
 							<!-- Home -->
-							<h3 id="home">Hello to Mask</h3>
+							<h3 id="home">Hello to Kick</h3>
 
-							<p>This is the entry page of Mask theme documentation. Choose from the categories on the left for details.</p>
+							<p>This is the entry page of Kick console documentation. Choose from the categories on the left for details.</p>
 
 						</div>
 						
