@@ -1,0 +1,12 @@
+<title><%= title %></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<!-- link rel="stylesheet" href="./css/jquery-ui.css"></link -->
+<!-- link rel="stylesheet" href="./css/bootstrap-theme.css"></link -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="./css/login.css"></link>
+<script type="text/javascript" src="./js/lib/jquery.js"></script>
+<script type="text/javascript" src="./js/login/views/login.js"></script>
+<style>
+	body { padding-top:50px; }
+</style>
