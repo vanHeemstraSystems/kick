@@ -5,7 +5,9 @@ var express = require('express'),
 	path = require('path'),
 	mime = require('mime'),
 	fs = require('fs'),
-	url = require('url'),	
+	url = require('url'),
+	http = require('http'),
+	runner = require('child_process'),		
 	morgan = require('morgan'),
 	partials = require('express-partials'),
 	device = require('../lib/device.js'),
@@ -575,6 +577,80 @@ try {
 catch(err) {
 	console.log(err);
 }
+/*
+ * CMD - The Command
+ */
+function cmd(request, response)
+{  
+    var urlpath = url.parse(request.url).pathname;
+    var param = url.parse(request.url).query;    
+    var localpath = path.join(process.cwd(), urlpath); 
+    fs.exists(localpath, function(result) { runScript(result, localpath, param, response)});  
+}
+// Port
+if(typeof configs.cmd_port === 'undefined') {
+	var cmd_port = app_port+2 || 5002;	
+}
+else {
+	var cmd_port = configs.cmd_port;
+}
+/*
+ * SENDERROR - The Sending of the Error
+ */
+function sendError(errCode, errString, response) {
+	console.log(server_prefix + " - sendError called");	
+	response.writeHead(errCode, {"Content-Type": "text/plain;charset=utf-8"});
+	response.write(errString + "\n");
+	response.end();
+	return false;
+} 
+/*
+ * SENDDATA - The Sending of the Data
+ */
+function sendData(err, stdout, stderr, response) {
+	console.log(server_prefix + " - sendData called");	
+	if(err) return sendError(500, stderr, response);
+	response.writeHead(200,{"Content-Type": "text/plain;charset=utf-8"});
+	response.write(stdout);
+	response.end();
+} 
+/*
+ * RUNSCRIPT - The Running of the Script
+ */
+function runScript(exists, file, param, response) {
+	console.log(server_prefix + " - runScript called");	
+	if(!exists) return sendError(404, 'File not found', response);
+	var command = '';
+	var extension = file.split('.').pop();
+	switch(extension) {
+    	case 'php':
+        	command = 'php';
+        	break;
+    	case 'js':
+        	command = 'node';
+        	break;
+    	default:
+        	// nothing
+  	}
+	runner.exec(command + " " + file + " " + param, 
+		function(err, stdout, stderr) { 
+  			sendData(err, stdout, stderr, response); 
+  		}
+  	);
+}
+/*
+ * ARGUMENTS - The Arguments
+ */
+function args(req, res) {
+	console.log(server_prefix + " - args called");
+	var urlpath = url.parse(req.url).pathname;
+	var param = url.parse(req.url).query;
+	var localpath = path.join(process.cwd(), urlpath);
+	path.exists(localpath, function(result) {
+		console.log(server_prefix + " - Process parameters: %p", param);
+		runScript(result, localpath, param, res);
+	});
+}
 /**
  * LISTEN
  */ 
@@ -583,4 +659,9 @@ var app_server = app.listen(app_port, function() {
 });
 var api_server = api.listen(api_port, function() {
 	console.log(server_prefix + " - Express api server listening on port %d in %s mode", api_port, api.settings.env);
+});
+
+var cmd_server = http.createServer(cmd);
+cmd_server.listen(cmd_port, function() {
+	console.log(server_prefix + " - Express cmd server listening on port %d", cmd_port);
 });
