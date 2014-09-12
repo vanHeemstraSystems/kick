@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Title here -->
+		<title>Hello to Mask</title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="ResponsiveWebInc">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="/pages/mydefaultpage/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Font awesome CSS -->
+		<link href="/pages/mydefaultpage/css/font-awesome.min.css" rel="stylesheet">		
+		<!-- Custom CSS -->
+		<link href="/pages/mydefaultpage/css/style.css" rel="stylesheet">
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="#">
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="row">
+					<div class="col-md-2">
+					
+						<div class="sidebar">
+							<!-- Project name -->
+							<h3>Categories</h3>
+							<ul>
+								<li><a href="#home">Home</a></li>
+								<li><a href="/pages/mydefaultpage/admin.html">Admin</a></li>
+								<li><a href="/pages/mydefaultpage/commerce.html">Commerce</a></li>
+								<li><a href="/pages/mydefaultpage/non-commerce.html">Non-Commerce</a></li>
+							</ul>
+						</div>
+						
+					</div>
+					<div class="col-md-10">
+					
+						<div class="mainbar">
+						
+							<!-- Home -->
+							<h3 id="home">Hello to Mask</h3>
+
+							<p>This is the entry page of Mask theme documentation. Choose from the categories on the left for details.</p>
+
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="footer text-center">
+				Copyright 2013 - <a href="http://responsivewebinc.com">Responsive Web Inc</a>
+			</div>
+		</div>
+		
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="/pages/mydefaultpage/js/jquery.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="/pages/mydefaultpage/js/bootstrap.min.js"></script>
+		<!-- Respond JS for IE8 -->
+		<script src="/pages/mydefaultpage/js/respond.min.js"></script>
+		<!-- HTML5 Support for IE -->
+		<script src="/pages/mydefaultpage/js/html5shiv.js"></script>
+		<!-- Custom JS -->
+		<script src="/pages/mydefaultpage/js/custom.js"></script>
+	</body>	
+</html>
