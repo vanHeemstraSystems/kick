@@ -661,7 +661,7 @@ var api_server = api.listen(api_port, function() {
 	console.log(server_prefix + " - Express api server listening on port %d in %s mode", api_port, api.settings.env);
 });
 
-var cmd_server = http.createServer(cmd);
+var cmd_server = http.createServer(cmd); // Usage: http://localhost:port/filename.extension?key=value
 cmd_server.listen(cmd_port, function() {
 	console.log(server_prefix + " - Express cmd server listening on port %d", cmd_port);
 });

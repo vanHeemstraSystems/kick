@@ -37,21 +37,8 @@
         //That loading sequence is controlled in page1.js.
         {
             //module names are relative to baseUrl/paths config
-            name: 'app/main1',
-            exclude: ['../common']
-        },
-
-        {
-            //module names are relative to baseUrl
-            name: 'app/main2',
-            exclude: ['../common']
-        },
-
-        {
-            //module names are relative to baseUrl
-            name: 'app/main3',
+            name: 'app/main',
             exclude: ['../common']
         }
-
     ]
 }

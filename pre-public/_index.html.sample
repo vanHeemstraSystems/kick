@@ -7,7 +7,7 @@
 		<meta name="description" content="Your description">
 		<meta name="keywords" content="Your,Keywords">
 		<meta name="author" content="ResponsiveWebInc">
-		
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<!-- Styles -->
@@ -17,12 +17,42 @@
 		<link href="/pages/mydefaultpage/css/font-awesome.min.css" rel="stylesheet">		
 		<!-- Custom CSS -->
 		<link href="/pages/mydefaultpage/css/style.css" rel="stylesheet">
-		
+		<!-- Inline CSS -->
+		<style type="text/css">
+			#iframecontainer {
+				width: 90%; height: 90%; display: none; position: fixed; margin-top: 4%; margin-left: 5%; background: #fff; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: 1px solid #555; box-shadow: 2px 2px 40px #222; z-index: 999999;
+			}
+			#iframecontainer iframe {
+				display: none; width: 100%; height: 100%; position: absolute; border: none;
+			}
+			#iframetitle {
+				background: #888; display: block; color: #fff; font: 14px/100% arial, sans-serif; text-align: center; vertical-align: middle; right; -moz-border-radius: 0px; -webkit-border-radius: 5px 5px 0px 0px; border-radius: 5px 5px 0px 0px; padding-right: 10px; padding-left: 10px;
+			}			
+			#iframemenu {
+				background: #888; display: block; padding-right: 10px; padding-left: 10px;
+			}
+			#iframemenuclose {
+				color: #777; font: 14px/100% arial, sans-serif; position: relative; float: right; right: 5px; text-decoration: none; text-shadow: 0 1px 0 #fff; top: 5px; z-index: 1000000; content: 'x';
+			}
+			#loader {
+				background: url('http://localhost:2000/themes/mydefaulttheme/img/ajax-loader.gif'); background-repeat: no-repeat; width: 250px; height: 250px; margin: auto;
+			}
+			#block {
+				background: #000; opacity:0.6; position: fixed; width: 100%; height: 100%; top: 0; left: 0; display: none;
+			}
+		</style>
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="#">
 	</head>
 	
 	<body>
+		<div id="block"></div>
+		<div id="iframecontainer">
+			<div id="loader"></div>
+			<div id="iframetitle">Title</div>
+			<div id="iframemenu"><a id="iframemenuclose" href="#" onclick='closeOverlay();return false;'>Close</a></div>
+			<iframe></iframe>
+		</div>
 		<div class="container">
 			<div class="main">
 				<div class="row">
@@ -53,6 +83,13 @@
 
 							<p>This is the entry page of Kick console documentation. Choose from the categories on the left for details.</p>
 
+							<h2>Commands</h2>
+							<ul>
+								<li><a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:2002/dirlist.php?x=test', 'Mask server')">List directory of Mask server</a></li>
+								<li><a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:3002/dirlist.php?x=test', 'Skin server')">List directory of Skin server</a></li>
+								<li><a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:4002/dirlist.php?x=test', 'Core server');">List directory of Core server</a></li>
+							</ul>
+
 						</div>
 						
 					</div>
@@ -63,18 +100,28 @@
 				Copyright 2013 - <a href="http://responsivewebinc.com">Responsive Web Inc</a>
 			</div>
 		</div>
-		
-		
 		<!-- Javascript files -->
-		<!-- jQuery -->
-		<script src="/pages/mydefaultpage/js/jquery.js"></script>
-		<!-- Bootstrap JS -->
-		<script src="/pages/mydefaultpage/js/bootstrap.min.js"></script>
-		<!-- Respond JS for IE8 -->
-		<script src="/pages/mydefaultpage/js/respond.min.js"></script>
-		<!-- HTML5 Support for IE -->
-		<script src="/pages/mydefaultpage/js/html5shiv.js"></script>
-		<!-- Custom JS -->
-		<script src="/pages/mydefaultpage/js/custom.js"></script>
+		<!-- JQuery -->
+		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.js"></script>
+		<!-- Inline Javascript -->
+		<script type="text/javascript">//<![CDATA[
+			function openOverlay(url, title) {
+				console.log('openOverlay called');
+				$('#block').fadeIn();
+				$('#iframecontainer').fadeIn();
+				$('#iframecontainer iframe').attr('src', url);
+				$('#iframetitle').innerHTML = title;
+				$('#iframecontainer iframe').load(function() {
+					$('#loader').fadeOut(function() {
+						$('iframe').fadeIn();
+					});
+				});
+			};
+			function closeOverlay() {
+				console.log('closeOverlay called');				
+				$('#iframecontainer').fadeOut();
+				$('#block').fadeOut();
+			};
+		</script>
 	</body>	
 </html>
