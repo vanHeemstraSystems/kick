@@ -85,9 +85,9 @@
 
 							<h2>Commands</h2>
 							<ul>
-								<li><a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:2002/dirlist.php?x=test', 'Mask server')">List directory of Mask server</a></li>
-								<li><a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:3002/dirlist.php?x=test', 'Skin server')">List directory of Skin server</a></li>
-								<li><a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:4002/dirlist.php?x=test', 'Core server');">List directory of Core server</a></li>
+								<li>Mask:&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:2002/dirlist.php?x=test', 'Mask: List Directory')">List Directory</a>&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:2002/nodeVersion.php?x=test', 'Mask: Node Version')">Node Version</a>&nbsp;|</li>
+								<li>Skin:&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:3002/dirlist.php?x=test', 'Skin: List Directory')">List Directory</a>&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:3002/nodeVersion.php?x=test', 'Skin: Node Version')">Node Version</a>&nbsp;|</li>
+								<li>Core:&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:4002/dirlist.php?x=test', 'Core server');">List Directory</a>&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:4002/nodeVersion.php?x=test', 'Core: Node Version');">Node Version</a>&nbsp;|</li>
 							</ul>
 
 						</div>
