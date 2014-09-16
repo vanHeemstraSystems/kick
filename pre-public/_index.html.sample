@@ -12,22 +12,51 @@
 		
 		<!-- Styles -->
 		<!-- Bootstrap CSS -->
-		<link href="/pages/mydefaultpage/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/themes/mydefaulttheme/css/bootstrap.min.css" rel="stylesheet">
 		<!-- Font awesome CSS -->
-		<link href="/pages/mydefaultpage/css/font-awesome.min.css" rel="stylesheet">		
+		<link href="/themes/mydefaulttheme/css/font-awesome.min.css" rel="stylesheet">
+		<!-- Widgets -->
+		<link href="/themes/mydefaulttheme/css/widgets.css" rel="stylesheet">		
 		<!-- Custom CSS -->
-		<link href="/pages/mydefaultpage/css/style.css" rel="stylesheet">
+		<link href="/themes/mydefaulttheme/css/admin-style.css" rel="stylesheet">
 		<!-- Inline CSS -->
 		<style type="text/css">
+
+			/*#iframecontainer {
+				width: 90%; 
+				height: 90%; 
+				display: none; 
+				position: fixed; 
+				margin-top: 4%; 
+				margin-left: 5%; 
+				background: #fff; 
+				-moz-border-radius: 10px; 
+				-webkit-border-radius: 10px; 
+				border-radius: 10px; 
+				border: 1px solid #555; 
+				box-shadow: 2px 2px 40px #222; 
+				z-index: 999999;
+			}*/
+
 			#iframecontainer {
-				width: 90%; height: 90%; display: none; position: fixed; margin-top: 4%; margin-left: 5%; background: #fff; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: 1px solid #555; box-shadow: 2px 2px 40px #222; z-index: 999999;
+				width: 90%; 
+				height: 90%; 
+				display: none; 
+				position: fixed; 
+				margin-top: 4%; 
+				margin-left: 5%; 
+				-moz-border-radius: 10px; 
+				-webkit-border-radius: 10px; 
+				border-radius: 10px;				
+				box-shadow: 2px 2px 40px #222; 
+				z-index: 999999;
 			}
 			#iframecontainer iframe {
 				display: none; width: 100%; height: 100%; position: absolute; border: none;
 			}
-			#iframetitle {
+			/*#iframetitle {
 				background: #888; display: block; color: #fff; font: 14px/100% arial, sans-serif; text-align: center; vertical-align: middle; right; -moz-border-radius: 0px; -webkit-border-radius: 5px 5px 0px 0px; border-radius: 5px 5px 0px 0px; padding-right: 10px; padding-left: 10px;
-			}			
+			}*/		
 			#iframemenu {
 				background: #888; display: block; padding-right: 10px; padding-left: 10px;
 			}
@@ -47,11 +76,36 @@
 	
 	<body>
 		<div id="block"></div>
-		<div id="iframecontainer">
+		<div id="iframecontainer" class="widget">
 			<div id="loader"></div>
+			<!--
 			<div id="iframetitle">Title</div>
 			<div id="iframemenu"><a id="iframemenuclose" href="#" onclick='closeOverlay();return false;'>Close</a></div>
-			<iframe></iframe>
+			-->
+			<!--div class="widget" -->
+				<div class="widget-head">
+					<div class="pull-left">Title</div>
+					<div class="widget-icons pull-right">
+						<a href="#" onclick='closeOverlay();' class="wclose">
+							<i class="fa fa-times">
+								::before
+							</i>
+						</a>
+					</div>
+					<div class="clearfix">
+						::before
+						::after
+					</div>
+				</div>
+				<div class="widget-content">
+					<div class="padd">
+						<iframe></iframe>
+					</div>
+					<div class="widget-foot">
+						<!-- Footer goes here -->
+					</div>	
+				</div>
+			<!--/div-->
 		</div>
 		<div class="container">
 			<div class="main">
@@ -85,9 +139,9 @@
 
 							<h2>Commands</h2>
 							<ul>
-								<li>Mask:&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:2002/dirlist.php?x=test', 'Mask: List Directory')">List Directory</a>&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:2002/nodeVersion.php?x=test', 'Mask: Node Version')">Node Version</a>&nbsp;|</li>
-								<li>Skin:&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:3002/dirlist.php?x=test', 'Skin: List Directory')">List Directory</a>&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:3002/nodeVersion.php?x=test', 'Skin: Node Version')">Node Version</a>&nbsp;|</li>
-								<li>Core:&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:4002/dirlist.php?x=test', 'Core server');">List Directory</a>&nbsp;|&nbsp;<a href="javascript: return false;" target="_blank" onclick="return openOverlay('http://localhost:4002/nodeVersion.php?x=test', 'Core: Node Version');">Node Version</a>&nbsp;|</li>
+								<li>Mask:&nbsp;|&nbsp;<a href="javascript:void(0)" target="_blank" onclick="return openOverlay('http://localhost:2002/dirlist.php?x=test', 'Mask: List Directory')">List Directory</a>&nbsp;|&nbsp;<a href="javascript:void(0)" target="_blank" onclick="return openOverlay('http://localhost:2002/nodeVersion.php?x=test', 'Mask: Node Version')">Node Version</a>&nbsp;|</li>
+								<li>Skin:&nbsp;|&nbsp;<a href="javascript:void(0)" target="_blank" onclick="return openOverlay('http://localhost:3002/dirlist.php?x=test', 'Skin: List Directory')">List Directory</a>&nbsp;|&nbsp;<a href="javascript:void(0)" target="_blank" onclick="return openOverlay('http://localhost:3002/nodeVersion.php?x=test', 'Skin: Node Version')">Node Version</a>&nbsp;|</li>
+								<li>Core:&nbsp;|&nbsp;<a href="javascript:void(0)" target="_blank" onclick="return openOverlay('http://localhost:4002/dirlist.php?x=test', 'Core server');">List Directory</a>&nbsp;|&nbsp;<a href="javascript:void(0)" target="_blank" onclick="return openOverlay('http://localhost:4002/nodeVersion.php?x=test', 'Core: Node Version');">Node Version</a>&nbsp;|</li>
 							</ul>
 
 						</div>
