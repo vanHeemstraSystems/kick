@@ -1,31 +1,31 @@
 /*
  * SERVER - The Server
- */ 
+ */
 var express = require('express'),
 	path = require('path'),
 	mime = require('mime'),
 	fs = require('fs'),
 	url = require('url'),
 	http = require('http'),
-	runner = require('child_process'),		
+	runner = require('child_process'),
 	morgan = require('morgan'),
 	partials = require('express-partials'),
 	device = require('../lib/device.js'),
-	hash = require('../lib/pass.js').hash,	
+	hash = require('../lib/pass.js').hash,
 	redirect = require('express-redirect'),
 	bodyParser = require('body-parser'),
 	cookieParser = require('cookie-parser'),
 	i18n = require('i18n-2'),
 	methodOverride = require('method-override'),
 	errorHandler = require('errorhandler'),
-	sass = require('node-sass'),	
+	sass = require('node-sass'),
 	session = require('express-session'),
 	passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy,
 	FacebookStrategy = require('passport-facebook').Strategy;
 /*
  * CONFIGS - The Configurations
- */ 	
+ */
 config = require('../configs/server.js');
 var configs = config.configs,
 	server_prefix = configs.server_prefix || 'KICK';
@@ -33,10 +33,10 @@ var configs = config.configs,
  * ROUTER - The Router
  */
 var router = require('../routers/router.js');
-/* 
+/*
  * ROUTES - The Routes
  */
-var routes = require('../routes'); // it seems that we have to start each required file as its own var 
+var routes = require('../routes'); // it seems that we have to start each required file as its own var
 /*
  * SERVICES - The Services
  */
@@ -178,7 +178,7 @@ api.all('*', function(req, res, next){
   res.set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
   res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
   res.set('X-Powered-By', 'Express');
-  res.set('Content-Type', 'application/json; charset=utf8'); 
+  res.set('Content-Type', 'application/json; charset=utf8');
   // res.set('Access-Control-Allow-Max-Age', 3600);
   if ('OPTIONS' == req.method) return res.send(200);
   next();
@@ -191,7 +191,7 @@ api.post('/login', function(req, res){
 /*
  * APP DEVELOPMENT
  *
- * .bash_profile contains 
+ * .bash_profile contains
  * NODE_ENV=development
  *
  * or start server as follows
@@ -200,14 +200,14 @@ api.post('/login', function(req, res){
  * on Windows use
  * set NODE_ENV=development
  * check with
- * echo %NODE_ENV% 
+ * echo %NODE_ENV%
  */
 if('development' == app.settings.env){
 	console.log(server_prefix + " - Using development configurations");
     app.set('view engine', 'ejs');
-    app.set('view options', { 
-    	// layout: '/../public/layout.ejs', 
-    	// layout_content_container_no_sidebar: '/../public/layout_content_container_no_sidebar.ejs' 
+    app.set('view options', {
+    	// layout: '/../public/layout.ejs',
+    	// layout_content_container_no_sidebar: '/../public/layout_content_container_no_sidebar.ejs'
     });
     app.set('views', __dirname + '/../views');
 	/*
@@ -217,7 +217,7 @@ if('development' == app.settings.env){
 	 * - multipart: parses multipart/form-data request bodies
 	 */
 	app.use(partials());
-	app.use(morgan('dev'));		 
+	app.use(morgan('dev'));
     app.use(bodyParser()); // pull information from html in POST
     app.use(methodOverride());
     app.use(cookieParser('s3cr3t')); // TODO get from config
@@ -230,8 +230,8 @@ if('development' == app.settings.env){
 		req.i18n.setLocaleFromQuery();
 		req.i18n.setLocaleFromCookie();
 		next();
-	});	
-    app.use(device.capture());    
+	});
+    app.use(device.capture());
     app.enableDeviceHelpers();
     app.enableViewRouting();
 	app.use(sass.middleware({
@@ -240,10 +240,10 @@ if('development' == app.settings.env){
 		debug: true,
 		outputStyle: 'compressed',
 		prefix:  '/css'
-	}));    
+	}));
     app.use('/app', express.static(path.join(__dirname, '/../public/app')));
     app.use('/tests', express.static(path.join(__dirname, '/../tests')));
-    app.use(express.static(path.join(__dirname, '/../public'))); // Fall back to this as a last resort   
+    app.use(express.static(path.join(__dirname, '/../public'))); // Fall back to this as a last resort
     app.use(errorHandler({ dumpExceptions: true, showStack: true })); // specific for development
     // These next instructions are placed after express.static to avoid passport.deserializeUser to be called several times
     app.use(session({secret: 'default', saveUninitialized: true, resave: true})); // required by passport, default values required
@@ -259,7 +259,7 @@ if('development' == app.settings.env){
 	});
 	passport.deserializeUser(function(id, done) {
 		var user = '';
-		var user_keys = {};		
+		var user_keys = {};
 		var user_not_found = true; // default to true
 		// Lookup user in user list by id, if found set not_found to false
 		for (key in user_list) {
@@ -335,7 +335,7 @@ if('development' == app.settings.env){
 		}
 	));
 	// TODO:
-	// passport.use(new FacebookStrategy({}));   
+	// passport.use(new FacebookStrategy({}));
 };
 /*
  * APP PRODUCTION
@@ -349,14 +349,14 @@ if('development' == app.settings.env){
  * on Windows use
  * set NODE_ENV=production
  * check with
- * echo %NODE_ENV% 
+ * echo %NODE_ENV%
  */
 if('production' == app.settings.env){
 	console.log(server_prefix + " - Using production configurations");
     app.set('view engine', 'ejs');
-    app.set('view options', { 
-    	// layout: '/../public/layout.ejs', 
-    	// layout_content_container_no_sidebar: '/../public/layout_content_container_no_sidebar.ejs' 
+    app.set('view options', {
+    	// layout: '/../public/layout.ejs',
+    	// layout_content_container_no_sidebar: '/../public/layout_content_container_no_sidebar.ejs'
     });
     app.set('views', __dirname + '/../views');
 	/*
@@ -366,7 +366,7 @@ if('production' == app.settings.env){
 	 * - multipart: parses multipart/form-data request bodies
 	 */
 	app.use(partials());
-	app.use(morgan('prod'));	
+	app.use(morgan('prod'));
     app.use(bodyParser()); // pull information from html in POST
     app.use(methodOverride());
     app.use(cookieParser('s3cr3t')); // TODO get from config
@@ -380,7 +380,7 @@ if('production' == app.settings.env){
 		req.i18n.setLocaleFromCookie();
 		next();
 	});
-    app.use(device.capture());   
+    app.use(device.capture());
     app.enableDeviceHelpers();
     app.enableViewRouting();
 	app.use(sass.middleware({
@@ -389,15 +389,15 @@ if('production' == app.settings.env){
 		debug: true,
 		outputStyle: 'compressed',
 		prefix:  '/css'
-	}));    
+	}));
     app.use('/app', express.static(path.join(__dirname, '/../public/app')));
-    app.use('/tests', express.static(path.join(__dirname, '/../tests')));    
-    app.use(express.static(path.join(__dirname, '/../public'))); // Fall back to this as a last resort    
+    app.use('/tests', express.static(path.join(__dirname, '/../tests')));
+    app.use(express.static(path.join(__dirname, '/../public'))); // Fall back to this as a last resort
     app.use(errorHandler({ dumpExceptions: false, showStack: false })); // specific for production
     // These next instructions are placed after express.static to avoid passport.deserializeUser to be called several times
     app.use(session({secret: 'default', saveUninitialized: true, resave: true})); // required by passport, default values required
     app.use(passport.initialize());
-    app.use(passport.session()); 
+    app.use(passport.session());
     /**
      * Passport
      * See http://truongtx.me/2014/03/29/authentication-in-nodejs-and-expressjs-with-passportjs-part-1/
@@ -408,7 +408,7 @@ if('production' == app.settings.env){
 	});
 	passport.deserializeUser(function(id, done) {
 		var user = '';
-		var user_keys = {};		
+		var user_keys = {};
 		var user_not_found = true; // default to true
 		// Lookup user in user list by id, if found set not_found to false
 		for (key in user_list) {
@@ -484,9 +484,9 @@ if('production' == app.settings.env){
 		}
 	));
 	// TODO:
-	// passport.use(new FacebookStrategy({}));    
+	// passport.use(new FacebookStrategy({}));
 };
-/** 
+/**
  * ALL requests
  */
 app.all('*', function(req, res, next){
@@ -498,7 +498,7 @@ app.all('*', function(req, res, next){
 	// res.set('Access-Control-Allow-Max-Age', 3600);
 	if ('OPTIONS' == req.method) return res.send(200);
 	// for static file requests
-	var static_file_path = "../public/"; 
+	var static_file_path = "../public/";
 	var uri = url.parse(req.url).pathname;
 	var filename = path.join(static_file_path, uri);
 	fs.exists(filename, function(exists) {
@@ -511,7 +511,7 @@ app.all('*', function(req, res, next){
 			return;
 		}
 		if(fs.statSync(filename).isDirectory()) {
-			// filename += '/index.html'; 
+			// filename += '/index.html';
 			next();
 		}
 		fs.readFile(filename, "binary", function(err, file) {
@@ -548,21 +548,21 @@ try {
 }
 catch(err) {
 	console.log(err);
-}	
+}
 // logout
 try {
 	app.use('/logout', router.logout);
 }
 catch(err) {
 	console.log(err);
-}	
+}
 // admin
 try {
 	app.use('/admin', router.admin);
 }
 catch(err) {
 	console.log(err);
-}	
+}
 // source
 try {
 	app.use('/source', router.source);
@@ -581,15 +581,16 @@ catch(err) {
  * CMD - The Command
  */
 function cmd(request, response)
-{  
+{
     var urlpath = url.parse(request.url).pathname;
-    var param = url.parse(request.url).query;    
-    var localpath = path.join(process.cwd(), urlpath); 
-    fs.exists(localpath, function(result) { runScript(result, localpath, param, response)});  
+    var param = url.parse(request.url).query;
+//    var localpath = path.join(process.cwd(), urlpath); // OLD
+		var localpath = path.join(__dirname, urlpath);	// NEW
+    fs.exists(localpath, function(result) { runScript(result, localpath, param, response)});
 }
 // Port
 if(typeof configs.cmd_port === 'undefined') {
-	var cmd_port = app_port+2 || 5002;	
+	var cmd_port = app_port+2 || 5002;
 }
 else {
 	var cmd_port = configs.cmd_port;
@@ -598,27 +599,27 @@ else {
  * SENDERROR - The Sending of the Error
  */
 function sendError(errCode, errString, response) {
-	console.log(server_prefix + " - sendError called");	
+	console.log(server_prefix + " - sendError called");
 	response.writeHead(errCode, {"Content-Type": "text/plain;charset=utf-8"});
 	response.write(errString + "\n");
 	response.end();
 	return false;
-} 
+}
 /*
  * SENDDATA - The Sending of the Data
  */
 function sendData(err, stdout, stderr, response) {
-	console.log(server_prefix + " - sendData called");	
+	console.log(server_prefix + " - sendData called");
 	if(err) return sendError(500, stderr, response);
 	response.writeHead(200,{"Content-Type": "text/plain;charset=utf-8"});
 	response.write(stdout);
 	response.end();
-} 
+}
 /*
  * RUNSCRIPT - The Running of the Script
  */
 function runScript(exists, file, param, response) {
-	console.log(server_prefix + " - runScript called");	
+	console.log(server_prefix + " - runScript called");
 	if(!exists) return sendError(404, 'File not found', response);
 	var command = '';
 	var extension = file.split('.').pop();
@@ -632,9 +633,9 @@ function runScript(exists, file, param, response) {
     	default:
         	// nothing
   	}
-	runner.exec(command + " " + file + " " + param, 
-		function(err, stdout, stderr) { 
-  			sendData(err, stdout, stderr, response); 
+	runner.exec(command + " " + file + " " + param,
+		function(err, stdout, stderr) {
+  			sendData(err, stdout, stderr, response);
   		}
   	);
 }
@@ -653,7 +654,7 @@ function args(req, res) {
 }
 /**
  * LISTEN
- */ 
+ */
 var app_server = app.listen(app_port, function() {
 	console.log(server_prefix + " - Express app server listening on port %d in %s mode", app_port, app.settings.env);
 });

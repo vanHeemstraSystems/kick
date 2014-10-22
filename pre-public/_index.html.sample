@@ -12,13 +12,13 @@
 		
 		<!-- Styles -->
 		<!-- Bootstrap CSS -->
-		<link href="/themes/mydefaulttheme/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://localhost:2000/themes/mydefaulttheme/css/bootstrap.min.css" rel="stylesheet">
 		<!-- Font awesome CSS -->
-		<link href="/themes/mydefaulttheme/css/font-awesome.min.css" rel="stylesheet">
+		<link href="http://localhost:2000/themes/mydefaulttheme/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Widgets -->
-		<link href="/themes/mydefaulttheme/css/widgets.css" rel="stylesheet">		
+		<link href="http://localhost:2000/themes/mydefaulttheme/css/widgets.css" rel="stylesheet">		
 		<!-- Custom CSS -->
-		<link href="/themes/mydefaulttheme/css/admin-style.css" rel="stylesheet">
+		<link href="http://localhost:2000/themes/mydefaulttheme/css/admin-style.css" rel="stylesheet">
 		<!-- Inline CSS -->
 		<style type="text/css">
 
@@ -156,7 +156,7 @@
 		</div>
 		<!-- Javascript files -->
 		<!-- JQuery -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.js"></script>
 		<!-- Inline Javascript -->
 		<script type="text/javascript">//<![CDATA[
 			function openOverlay(url, title) {
