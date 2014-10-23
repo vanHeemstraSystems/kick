@@ -832,18 +832,18 @@
 
 		<!-- Javascript files -->
 		<!-- jQuery -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/bootstrap.min.js"></script>
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/owl.carousel.min.js"></script>
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/filter.js"></script>
+		<script src="http://localhost:2000/js/lib/bootstrap.min.js"></script>
+		<script src="http://localhost:2000/js/lib/owl.carousel.min.js"></script>
+		<script src="http://localhost:2000/js/lib/filter.js"></script>
 		<!-- Flex slider -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.flexslider-min.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.flexslider-min.js"></script>
 		<!-- Respond JS for IE8 -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/respond.min.js"></script>
+		<script src="http://localhost:2000/js/lib/respond.min.js"></script>
 		<!-- HTML5 Support for IE -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/html5shiv.js"></script>
+		<script src="http://localhost:2000/js/lib/html5shiv.js"></script>
 		<!-- Custom JS -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/custom.js"></script>
+		<script src="http://localhost:2000/js/lib/custom.js"></script>
 	</body>
 </html>
