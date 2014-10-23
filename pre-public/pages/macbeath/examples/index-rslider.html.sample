@@ -29,7 +29,7 @@
 		<!-- Custom CSS -->
 		<link href="http://localhost:2000/pages/macbeath/css/style.css" rel="stylesheet">
 		<!-- Stylesheet for Color -->
-		<link href="css/red.css" rel="stylesheet">
+		<link href="http://localhost:2000/pages/macbeath/css/red.css" rel="stylesheet">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="http://localhost:2000/themes/mydefaulttheme/img/favicon/favicon.png">
