@@ -1019,7 +1019,7 @@
 <script src="http://localhost:2000/themes/mydefaulttheme/js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
 <script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.onoff.min.js"></script> <!-- Bootstrap Toggle -->
 <script src="http://localhost:2000/themes/mydefaulttheme/js/filter.js"></script> <!-- Filter for support page -->
-<script src="http://localhost:2000/themes/mydefaulttheme/js/custom.js"></script> <!-- Custom codes -->
+<script src="http://localhost:2000/themes/mydefaulttheme/js/admin-custom.js"></script> <!-- Custom codes -->
 <script src="http://localhost:2000/themes/mydefaulttheme/js/charts.js"></script> <!-- Charts & Graphs -->
 
 <!-- Script for this page -->

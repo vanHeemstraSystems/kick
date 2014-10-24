@@ -14,7 +14,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link href="css/style.css" rel="stylesheet">
-  
+
   <script src="js/respond.min.js"></script>
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
@@ -33,11 +33,11 @@
         <!-- Widget starts -->
             <div class="widget wred">
               <div class="widget-head">
-                <i class="fa fa-lock"></i> Register 
+                <i class="fa fa-lock"></i> Register
               </div>
               <div class="widget-content">
                 <div class="padd">
-                  
+
                   <form class="form-horizontal">
                     <!-- Registration form starts -->
                                       <!-- Name -->
@@ -46,7 +46,7 @@
                                             <div class="col-lg-9">
                                               <input type="text" class="form-control" id="name">
                                             </div>
-                                          </div>   
+                                          </div>
                                           <!-- Email -->
                                           <div class="form-group">
                                             <label class="control-label col-lg-3" for="email">Email</label>
@@ -57,7 +57,7 @@
                                           <!-- Select box -->
                                           <div class="form-group">
                                             <label class="control-label col-lg-3">Drop Down</label>
-                                            <div class="col-lg-4">                               
+                                            <div class="col-lg-4">
                                                 <select class="form-control">
                                                 <option>&nbsp;</option>
                                                 <option>1</option>
@@ -65,9 +65,9 @@
                                                 <option>3</option>
                                                 <option>4</option>
                                                 <option>5</option>
-                                                </select>  
+                                                </select>
                                             </div>
-                                          </div>                                           
+                                          </div>
                                           <!-- Username -->
                                           <div class="form-group">
                                             <label class="control-label col-lg-3" for="username">Username</label>
@@ -102,16 +102,16 @@
                 <div class="widget-foot">
                   Already Registred? <a href="login.html">Login</a>
                 </div>
-            </div>  
+            </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
-	
-		
+
+
 
 <!-- JS -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="http://localhost:2000/js/bin/jquery.js"></script>
+<script src="http://localhost:2000/js/bin/bootstrap.min.js"></script>
 </body>
 </html>
