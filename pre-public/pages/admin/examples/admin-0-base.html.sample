@@ -32,7 +32,7 @@
   <!-- Bootstrap toggle -->
   <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/jquery.onoff.css">
   <!-- Main stylesheet -->
-  <link href="http://localhost:2000/pages/macadmin/css/style.css" rel="stylesheet">
+  <link href="http://localhost:2000/pages/admin/css/admin-style.css" rel="stylesheet">
   <!-- Widgets stylesheet -->
   <link href="http://localhost:2000/themes/mydefaulttheme/css/widgets.css" rel="stylesheet">
 
