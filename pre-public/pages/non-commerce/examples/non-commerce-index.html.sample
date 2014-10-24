@@ -587,27 +587,27 @@
 
 		<!-- Javascript files -->
 		<!-- jQuery -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/bootstrap.min.js"></script>
+		<script src="http://localhost:2000/js/lib/bootstrap.min.js"></script>
 		<!-- Isotope, Pretty Photo JS -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.isotope.js"></script>
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.prettyPhoto.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.isotope.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.prettyPhoto.js"></script>
 		<!-- Filter for support page -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/filter.js"></script>
+		<script src="http://localhost:2000/js/lib/filter.js"></script>
 		<!-- Flex slider -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.flexslider-min.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.flexslider-min.js"></script>
 		<!-- Parallax Slider -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/jquery.cslider.js"></script>
+		<script src="http://localhost:2000/js/lib/jquery.cslider.js"></script>
 		<!-- Parallax slider extra -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/modernizr.custom.28468.js"></script>
+		<script src="http://localhost:2000/js/lib/modernizr.custom.28468.js"></script>
 		<!-- Owl Carousel -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/owl.carousel.min.js"></script>
+		<script src="http://localhost:2000/js/lib/owl.carousel.min.js"></script>
 		<!-- Respond JS for IE8 -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/respond.min.js"></script>
+		<script src="http://localhost:2000/js/lib/respond.min.js"></script>
 		<!-- HTML5 Support for IE -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/html5shiv.js"></script>
+		<script src="http://localhost:2000/js/lib/html5shiv.js"></script>
 		<!-- Custom JS -->
-		<script src="http://localhost:2000/themes/mydefaulttheme/js/custom.js"></script>
+		<script src="http://localhost:2000/js/lib/non-commerce-custom.js"></script>
 	</body>
 </html>
