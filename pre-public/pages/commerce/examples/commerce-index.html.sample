@@ -19,7 +19,7 @@
 		<link href="http://localhost:2000/themes/mydefaulttheme/css/owl.carousel.css" rel="stylesheet">
 		<link href="http://localhost:2000/themes/mydefaulttheme/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Custom CSS -->
-		<link href="http://localhost:2000/pages/mackart/css/style.css" rel="stylesheet">
+		<link href="http://localhost:2000/pages/commerce/css/commerce-style.css" rel="stylesheet">
 		<!-- Stylesheet for Color -->
 		<link href="http://localhost:2000/themes/mydefaulttheme/css/red.css" rel="stylesheet">
 
