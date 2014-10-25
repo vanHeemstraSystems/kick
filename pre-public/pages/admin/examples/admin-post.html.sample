@@ -12,51 +12,51 @@
 
 
   <!-- Stylesheets -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:2000/themes/mydefaulttheme/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font awesome icon -->
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/font-awesome.min.css">
   <!-- jQuery UI -->
-  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/jquery-ui.css">
   <!-- Calendar -->
-  <link rel="stylesheet" href="css/fullcalendar.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/fullcalendar.css">
   <!-- prettyPhoto -->
-  <link rel="stylesheet" href="css/prettyPhoto.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/prettyPhoto.css">
   <!-- Star rating -->
-  <link rel="stylesheet" href="css/rateit.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/rateit.css">
   <!-- Date picker -->
-  <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/bootstrap-datetimepicker.min.css">
   <!-- CLEditor -->
-  <link rel="stylesheet" href="css/jquery.cleditor.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/jquery.cleditor.css">
   <!-- Data tables -->
-  <link rel="stylesheet" href="css/jquery.dataTables.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/jquery.dataTables.css">
   <!-- Bootstrap toggle -->
-  <link rel="stylesheet" href="css/jquery.onoff.css">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/jquery.onoff.css">
   <!-- Main stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="http://localhost:2000/themes/mydefaulttheme/css/admin-style.css" rel="stylesheet">
   <!-- Widgets stylesheet -->
-  <link href="css/widgets.css" rel="stylesheet">
+  <link href="http://localhost:2000/themes/mydefaulttheme/css/widgets.css" rel="stylesheet">
 
-  <script src="js/respond.min.js"></script>
+  <script src="http://localhost:2000/js/lib/respond.min.js"></script>
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <![endif]-->
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="img/favicon/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:2000/themes/mydefaulttheme/img/favicon/favicon.png">
 </head>
 
 <body>
 
 <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
 
-    <div class="conjtainer">
+    <div class="container">
       <!-- Menu button for smallar screens -->
       <div class="navbar-header">
 		  <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
 			<span>Menu</span>
 		  </button>
 		  <!-- Site name for smallar screens -->
-		  <a href="index.html" class="navbar-brand hidden-lg">MacBeth</a>
+		  <a href="admin-index.html" class="navbar-brand hidden-lg">MacBeth</a>
 		</div>
 
 
@@ -144,7 +144,7 @@
             <ul class="dropdown-menu">
               <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
               <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
-              <li><a href="login.html"><i class="fa fa-sign-out"></i> Logout</a></li>
+              <li><a href="admin-login.html"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
           </li>
 
@@ -352,7 +352,7 @@
         <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
         <ul id="nav">
           <!-- Main menu with font awesome icon -->
-          <li><a href="index.html"><i class="fa fa-home"></i> Dashboard</a>
+          <li><a href="admin-index.html"><i class="fa fa-home"></i> Dashboard</a>
             <!-- Sub menu markup
             <ul>
               <li><a href="#">Submenu #1</a></li>
@@ -362,40 +362,40 @@
           </li>
           <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> Widgets  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
             <ul>
-              <li><a href="widgets1.html">Widgets #1</a></li>
-              <li><a href="widgets2.html">Widgets #2</a></li>
-              <li><a href="widgets3.html">Widgets #3</a></li>
+              <li><a href="admin-widgets1.html">Widgets #1</a></li>
+              <li><a href="admin-widgets2.html">Widgets #2</a></li>
+              <li><a href="admin-widgets3.html">Widgets #3</a></li>
             </ul>
           </li>
           <li class="has_sub open"><a href="#"><i class="fa fa-file-o"></i> Pages #1  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
             <ul>
               <li class="current"><a href="post.html">Post</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="register.html">Register</a></li>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="admin-login.html">Login</a></li>
+              <li><a href="admin-register.html">Register</a></li>
+              <li><a href="admin-support.html">Support</a></li>
+              <li><a href="admin-invoice.html">Invoice</a></li>
+              <li><a href="admin-gallery.html">Gallery</a></li>
             </ul>
           </li>
           <li class="has_sub"><a href="#"><i class="fa fa-file-o"></i> Pages #2  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
             <ul>
-              <li><a href="media.html">Media</a></li>
-              <li><a href="statement.html">Statement</a></li>
-              <li><a href="error.html">Error</a></li>
-              <li><a href="error-log.html">Error Log</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="grid.html">Grid</a></li>
+              <li><a href="admin-media.html">Media</a></li>
+              <li><a href="admin-statement.html">Statement</a></li>
+              <li><a href="admin-error.html">Error</a></li>
+              <li><a href="admin-error-log.html">Error Log</a></li>
+              <li><a href="admin-calendar.html">Calendar</a></li>
+              <li><a href="admin-grid.html">Grid</a></li>
             </ul>
           </li>
 		  <li class="has_sub"><a href="#"><i class="fa fa-table"></i> Tables  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
             <ul>
-              <li><a href="tables.html">Tables</a></li>
-              <li><a href="dynamic-tables.html">Dynamic Tables</a></li>
+              <li><a href="admin-tables.html">Tables</a></li>
+              <li><a href="admin-dynamic-tables.html">Dynamic Tables</a></li>
             </ul>
           </li>
-          <li><a href="charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
-          <li><a href="forms.html"><i class="fa fa-tasks"></i> Forms</a></li>
-          <li><a href="ui.html"><i class="fa fa-magic"></i> User Interface</a></li>
+          <li><a href="admin-charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
+          <li><a href="admin-forms.html"><i class="fa fa-tasks"></i> Forms</a></li>
+          <li><a href="admin-ui.html"><i class="fa fa-magic"></i> User Interface</a></li>
         </ul>
     </div>
 
@@ -410,7 +410,7 @@
 
         <!-- Breadcrumb -->
         <div class="bread-crumb pull-right">
-          <a href="index.html"><i class="fa fa-home"></i> Home</a>
+          <a href="admin-index.html"><i class="fa fa-home"></i> Home</a>
           <!-- Divider -->
           <span class="divider">/</span>
           <a href="#" class="bread-current">Dashboard</a>

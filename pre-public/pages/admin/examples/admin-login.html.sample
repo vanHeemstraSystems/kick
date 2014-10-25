@@ -11,17 +11,17 @@
   <meta name="author" content="">
 
   <!-- Stylesheets -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link href="css/style.css" rel="stylesheet">
-  
-  <script src="js/respond.min.js"></script>
+  <link href="http://localhost:2000/themes/mydefaulttheme/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:2000/themes/mydefaulttheme/css/font-awesome.min.css">
+  <link href="http://localhost:2000/themes/mydefaulttheme/css/admin-style.css" rel="stylesheet">
+
+  <script src="http://localhost:2000/js/lib/respond.min.js"></script>
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <![endif]-->
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="img/favicon/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:2000/themes/mydefaulttheme/img/favicon/favicon.png">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             <div class="widget worange">
               <!-- Widget head -->
               <div class="widget-head">
-                <i class="fa fa-lock"></i> Login 
+                <i class="fa fa-lock"></i> Login
               </div>
 
               <div class="widget-content">
@@ -73,23 +73,23 @@
 						</div>
                     <br />
                   </form>
-				  
+
 				</div>
                 </div>
-              
+
                 <div class="widget-foot">
                   Not Registred? <a href="#">Register here</a>
                 </div>
-            </div>  
+            </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
-	
-		
+
+
 
 <!-- JS -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="http://localhost:2000/js/lib/jquery.js"></script>
+<script src="http://localhost:2000/js/lib/bootstrap.min.js"></script>
 </body>
 </html>

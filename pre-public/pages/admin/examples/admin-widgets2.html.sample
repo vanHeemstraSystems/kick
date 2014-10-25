@@ -36,7 +36,7 @@
   <!-- Widgets stylesheet -->
   <link href="http://localhost:2000/themes/mydefaulttheme/css/widgets.css" rel="stylesheet">
 
-  <script src="http://localhost:2000/js/bin/respond.min.js"></script>
+  <script src="http://localhost:2000/js/lib/respond.min.js"></script>
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <![endif]-->
