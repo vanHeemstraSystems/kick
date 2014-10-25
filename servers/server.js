@@ -503,11 +503,11 @@ app.all('*', function(req, res, next){
 	var filename = path.join(static_file_path, uri);
 	fs.exists(filename, function(exists) {
 		if (!exists) {
-			response.writeHead(404, {
+			res.writeHead(404, {
 				"Content-Type": "text/plain"
 			});
-			response.write("404 Not Found\n");
-			response.end();
+			res.write("404 Not Found\n");
+			res.end();
 			return;
 		}
 		if(fs.statSync(filename).isDirectory()) {
@@ -516,19 +516,19 @@ app.all('*', function(req, res, next){
 		}
 		fs.readFile(filename, "binary", function(err, file) {
 			if(err) {
-				response.writeHead(500, {
+				res.writeHead(500, {
 					"Content-Type": "text/plain"
 				});
-				response.write(err + "\n");
-				response.end();
+				res.write(err + "\n");
+				res.end();
 				return;
 			}
 			var type = mime.lookup(filename);
-			response.writeHead(200, {
+			res.writeHead(200, {
 				"Content-Type": type
 			});
-			response.write(file, "binary");
-			response.end();
+			res.write(file, "binary");
+			res.end();
 		});
 	});
 });
