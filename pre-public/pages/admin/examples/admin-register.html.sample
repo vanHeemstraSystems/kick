@@ -111,7 +111,7 @@
 
 
 <!-- JS -->
-<script src="http://localhost:2000/js/bin/jquery.js"></script>
-<script src="http://localhost:2000/js/bin/bootstrap.min.js"></script>
+<script src="http://localhost:2000/js/lib/jquery.js"></script>
+<script src="http://localhost:2000/js/lib/bootstrap.min.js"></script>
 </body>
 </html>
