@@ -42,7 +42,7 @@
   <![endif]-->
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="img/favicon/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:2000/themes/mydefaulttheme/img/favicon/favicon.png">
 </head>
 
 <body>
@@ -541,7 +541,7 @@
                               <input type='checkbox' value='check1' />
                             </span>
                           </td>
-                          <td><img src="img/user.jpg" alt="" /></td>
+                          <td><img src="http://localhost:2000/themes/mydefaulttheme/img/user.jpg" alt="" /></td>
                           <td><a href="#">some_file_name</a><p>FLV</p></td>
                           <td>Munarai</td>
                           <td>13/32/2012</td>
