@@ -36,7 +36,7 @@
   <!-- Widgets stylesheet -->
   <link href="http://localhost:2000/themes/mydefaulttheme/css/widgets.css" rel="stylesheet">
 
-  <script src="http://localhost:2000/js/bin/respond.min.js"></script>
+  <script src="http://localhost:2000/js/lib/respond.min.js"></script>
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <![endif]-->
@@ -882,37 +882,37 @@
 <span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
 
 <!-- JS -->
-<script src="http://localhost:2000/js/bin/jquery.js"></script> <!-- jQuery -->
-<script src="http://localhost:2000/js/bin/bootstrap.min.js"></script> <!-- Bootstrap -->
-<script src="http://localhost:2000/js/bin/jquery-ui.min.js"></script> <!-- jQuery UI -->
-<script src="http://localhost:2000/js/bin/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
-<script src="http://localhost:2000/js/bin/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
-<script src="http://localhost:2000/js/bin/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
-<script src="http://localhost:2000/js/bin/jquery.slimscroll.min.js"></script> <!-- jQuery Slim Scroll -->
-<script src="http://localhost:2000/js/bin/jquery.dataTables.min.js"></script> <!-- Data tables -->
+<script src="http://localhost:2000/js/lib/jquery.js"></script> <!-- jQuery -->
+<script src="http://localhost:2000/js/lib/bootstrap.min.js"></script> <!-- Bootstrap -->
+<script src="http://localhost:2000/js/lib/jquery-ui.min.js"></script> <!-- jQuery UI -->
+<script src="http://localhost:2000/js/lib/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+<script src="http://localhost:2000/js/lib/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+<script src="http://localhost:2000/js/lib/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+<script src="http://localhost:2000/js/lib/jquery.slimscroll.min.js"></script> <!-- jQuery Slim Scroll -->
+<script src="http://localhost:2000/js/lib/jquery.dataTables.min.js"></script> <!-- Data tables -->
 
 <!-- jQuery Flot -->
-<script src="http://localhost:2000/js/bin/excanvas.min.js"></script>
-<script src="http://localhost:2000/js/bin/jquery.flot.js"></script>
-<script src="http://localhost:2000/js/bin/jquery.flot.resize.js"></script>
-<script src="http://localhost:2000/js/bin/jquery.flot.pie.js"></script>
-<script src="http://localhost:2000/js/bin/jquery.flot.stack.js"></script>
+<script src="http://localhost:2000/js/lib/excanvas.min.js"></script>
+<script src="http://localhost:2000/js/lib/jquery.flot.js"></script>
+<script src="http://localhost:2000/js/lib/jquery.flot.resize.js"></script>
+<script src="http://localhost:2000/js/lib/jquery.flot.pie.js"></script>
+<script src="http://localhost:2000/js/lib/jquery.flot.stack.js"></script>
 
 <!-- jQuery Notification - Noty -->
-<script src="http://localhost:2000/js/bin/jquery.noty.js"></script> <!-- jQuery Notify -->
-<script src="http://localhost:2000/js/bin/themes/default.js"></script> <!-- jQuery Notify -->
-<script src="http://localhost:2000/js/bin/layouts/bottom.js"></script> <!-- jQuery Notify -->
-<script src="http://localhost:2000/js/bin/layouts/topRight.js"></script> <!-- jQuery Notify -->
-<script src="http://localhost:2000/js/bin/layouts/top.js"></script> <!-- jQuery Notify -->
+<script src="http://localhost:2000/js/lib/jquery.noty.js"></script> <!-- jQuery Notify -->
+<script src="http://localhost:2000/js/lib/themes/default.js"></script> <!-- jQuery Notify -->
+<script src="http://localhost:2000/js/lib/layouts/bottom.js"></script> <!-- jQuery Notify -->
+<script src="http://localhost:2000/js/lib/layouts/topRight.js"></script> <!-- jQuery Notify -->
+<script src="http://localhost:2000/js/lib/layouts/top.js"></script> <!-- jQuery Notify -->
 <!-- jQuery Notification ends -->
 
-<script src="http://localhost:2000/js/bin/sparklines.js"></script> <!-- Sparklines -->
-<script src="http://localhost:2000/js/bin/jquery.cleditor.min.js"></script> <!-- CLEditor -->
-<script src="http://localhost:2000/js/bin/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
-<script src="http://localhost:2000/js/bin/jquery.onoff.min.js"></script> <!-- Bootstrap Toggle -->
-<script src="http://localhost:2000/js/bin/filter.js"></script> <!-- Filter for support page -->
-<script src="http://localhost:2000/js/bin/admin-custom.js"></script> <!-- Custom codes -->
-<script src="http://localhost:2000/js/bin/charts.js"></script> <!-- Charts & Graphs -->
+<script src="http://localhost:2000/js/lib/sparklines.js"></script> <!-- Sparklines -->
+<script src="http://localhost:2000/js/lib/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+<script src="http://localhost:2000/js/lib/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+<script src="http://localhost:2000/js/lib/jquery.onoff.min.js"></script> <!-- Bootstrap Toggle -->
+<script src="http://localhost:2000/js/lib/filter.js"></script> <!-- Filter for support page -->
+<script src="http://localhost:2000/js/lib/admin-custom.js"></script> <!-- Custom codes -->
+<script src="http://localhost:2000/js/lib/charts.js"></script> <!-- Charts & Graphs -->
 
 </body>
 </html>
