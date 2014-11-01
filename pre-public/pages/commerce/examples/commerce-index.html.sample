@@ -19,7 +19,7 @@
 		<link href="http://localhost:2000/themes/mydefaulttheme/css/owl.carousel.css" rel="stylesheet">
 		<link href="http://localhost:2000/themes/mydefaulttheme/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Custom CSS -->
-		<link href="http://localhost:2000/pages/mackart/css/style.css" rel="stylesheet">
+		<link href="http://localhost:2000/pages/commerce/css/commerce-style.css" rel="stylesheet">
 		<!-- Stylesheet for Color -->
 		<link href="http://localhost:2000/themes/mydefaulttheme/css/red.css" rel="stylesheet">
 
@@ -844,6 +844,6 @@
 		<!-- HTML5 Support for IE -->
 		<script src="http://localhost:2000/js/lib/html5shiv.js"></script>
 		<!-- Custom JS -->
-		<script src="http://localhost:2000/js/lib/custom.js"></script>
+		<script src="http://localhost:2000/js/lib/commerce-custom.js"></script>
 	</body>
 </html>
