@@ -18,16 +18,16 @@
         <script>
         // See http://www.ejeliot.com/blog/109
             function loadScript(src, async, elem, callback){
-                console.log('SKIN: loadScript called');
+                console.log('KICK: loadScript called');
                 // Loads a script.
                 elem = elem || document.createElement('script');
                 elem.async = elem.defer = async;
                 elem.src = src;
-                console.log('SKIN: elem = ' + elem);                
+                console.log('KICK: elem = ' + elem);
                 if(callback) {
                     if(elem.readyState) {
-                        console.log('SKIN: elem.readyState is true');
-                        // IE 
+                        console.log('KICK: elem.readyState is true');
+                        // IE
                         elem.onreadystatechange = function() {
                             if(elem.readyState == "loaded" || elem.readyState == "complete") {
                                 elem.onreadystatechange = null;
@@ -35,10 +35,10 @@
                             }
                         };
                     } else {
-                        console.log('SKIN: elem.readyState is false');
+                        console.log('KICK: elem.readyState is false');
                         // Good browsers
                         elem.onload = function() {
-                            console.log('SKIN: elem.onload set');
+                            console.log('KICK: elem.onload set');
                             callback();
                         }
                     }
@@ -46,38 +46,38 @@
                 insertScript(elem);
             }
             function insertScript(e) {
-                console.log('SKIN: insertScript(e) called');
-                console.log('SKIN: e = ' + e);
+                console.log('KICK: insertScript(e) called');
+                console.log('KICK: e = ' + e);
                 document.getElementsByTagName('head')[0].appendChild(e);
             }
         </script>
         <script>
             var doNext = function() {
-                console.log('SKIN: doNext called');
+                console.log('KICK: doNext called');
                 //Load common code that includes config, then load the app
                 //logic for this page. Do the require calls here instead of
                 //a separate file so after a build there are only 2 HTTP
                 //requests instead of three.
                 require(['./js/common'], function (common) {
-                    console.log('SKIN: page: common required');
+                    console.log('KICK: page: common required');
                     console.log(common);
                     //js/common sets the baseUrl to be js/ so
                     //can just ask for 'app/main' here instead
                     //of 'js/app/main'
                     require(['app/main'], function (main) {
-                         console.log('SKIN: page: main required');
+                         console.log('KICK: page: main required');
                          console.log(main);
                          // Set store (e.g. 'mydefaultstore')
-                         console.log('SKIN: page: main.setStoreName("<%= app_name %>")');
+                         console.log('KICK: page: main.setStoreName("<%= app_name %>")');
                          main.setStoreName('<%= app_name %>');
                          // Set viewIndex (e.g. 0)
-                         console.log('SKIN: page: main.setViewIndex(<%= view_index %>)');
+                         console.log('KICK: page: main.setViewIndex(<%= view_index %>)');
                          main.setViewIndex(<%= view_index %>);
                          // Set elementId (e.g. 'page')
-                         console.log('SKIN: page: main.setElementId("page")');
+                         console.log('KICK: page: main.setElementId("page")');
                          main.setElementId('page');
                          // Call ready()
-                         console.log('SKIN: page: main.ready()');
+                         console.log('KICK: page: main.ready()');
                          main.ready();
                     });
                 });
@@ -110,19 +110,19 @@
                     -webkit-animation-name: first;
                     -webkit-animation-duration: 0.5s;
                     -webkit-animation-iteration-count: infinite;
-                    -webkit-animation-direction: linear;            
+                    -webkit-animation-direction: linear;
                 }
                 #second {
                     -webkit-animation-name: second;
                     -webkit-animation-duration: 0.5s;
                     -webkit-animation-iteration-count: infinite;
-                    -webkit-animation-direction: linear;            
+                    -webkit-animation-direction: linear;
                 }
                 #third {
                     -webkit-animation-name: third;
                     -webkit-animation-duration: 0.5s;
                     -webkit-animation-iteration-count: infinite;
-                    -webkit-animation-direction: linear;            
+                    -webkit-animation-direction: linear;
                 }
                 #loadingIndicator div {
                     background-color: #FFFFFF;
@@ -138,7 +138,7 @@
                     text-align: center;
                     width: 100%;
                     margin-bottom: 20px;
-                }    
+                }
                 @-webkit-keyframes first{
                     0% {
                         opacity: 0.8
@@ -190,7 +190,7 @@
                         opacity: 0.0
                     }
                 }
-            </style>        
+            </style>
             <div id="loadingIndicator">
                 <p>LOADING</p>
                 <div id="first"></div>
