@@ -2,7 +2,7 @@
  * Main
  */
 define(['./Base','../require'], function (Base, require) {
-    console.log('CORE: main called');
+    console.log('KICK: main called');
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     	var r = (d + Math.random()*16)%16 | 0;
