@@ -1026,12 +1026,15 @@
 <script src="http://localhost:2000/js/lib/underscore.js"></script>
 <!-- Backbone JS -->
 <script src="http://localhost:2000/js/lib/backbone.js"></script>
+<!-- Backbone Marionette JS -->
+<script src="http://localhost:2000/js/lib/backbone.marionette.js"></script>
 <!-- Backbone Wreqr JS -->
 <script src="http://localhost:2000/js/lib/backbone.wreqr.js"></script>
 <!-- Backbone Babysitter JS -->
 <script src="http://localhost:2000/js/lib/backbone.babysitter.js"></script>
-<!-- Backbone Marionette JS -->
-<script src="http://localhost:2000/js/lib/backbone.marionette.js"></script>
+
+<!-- Application -->
+<script src="../../js/app/main.js"></script>
 
 <!-- Script for this page -->
 <script type="text/javascript">
