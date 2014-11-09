@@ -1,0 +1,1 @@
+QuizEngine.Router=Marionette.AppRouter.extend({routes:{"":"redirectToMain"},redirectToMain:function(){Backbone.history.navigate("list",{trigger:!0,replace:!0})}}),QuizEngine.addInitializer(function(){QuizEngine.router=new QuizEngine.Router});

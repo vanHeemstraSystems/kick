@@ -1,0 +1,1 @@
+QuizEngine.module("Data",function(e){e.Questions=Backbone.Collection.extend({model:e.Question})});

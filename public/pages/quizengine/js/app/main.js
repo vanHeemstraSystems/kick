@@ -1,0 +1,1 @@
+var QuizEngine=function(){var e=Marionette.Application.extend({}),t=new e;return t.addRegions({header:"[data-region=header]",body:"[data-region=body]",footer:"[data-region=footer]"}),t.on("initialize:after",function(){Backbone.history.start()}),t}();
