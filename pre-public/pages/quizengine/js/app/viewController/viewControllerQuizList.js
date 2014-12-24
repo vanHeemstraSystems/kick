@@ -9,7 +9,7 @@ QuizEngine.module('QuizList', function(QuizList) {
         // When the module stops, we need to clean up our views
         hide: function() {
             // QuizEngine.body.close(); // Marionette 1 version
-			QuizEngine.body.destroy(); // Marionette 2 version
+            QuizEngine.body._destroyView(); // Marionette 2 version
             this.data = this.view = null;
         },
 

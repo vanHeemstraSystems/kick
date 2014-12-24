@@ -9,7 +9,7 @@ QuizEngine.module('Quiz', function(Quiz) {
         // When the module stops, we need to clean up
         hide: function() {
 			// QuizEngine.body.close(); // Marionette 1 version
-			QuizEngine.body.destroy(); // Marionette 2 version
+            QuizEngine.body._destroyView(); // Marionette 2 version
             this.stopListening();
             this.data = this.view = null;
         },
