@@ -43,19 +43,44 @@
     <link rel="stylesheet" href="http://localhost:2000/pages/quizengine/css/styles.css">
 </head>
 <body> 
+
+  <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+
+  </div>    
+
+<!-- Header starts -->
+  <header data-region="header" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <header data-region="header" class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="#list" class="navbar-brand">Quiz Engine</a>
-                </div>
-            </div>
-        </header>
-        <section id="appBody" data-region="body" class="row"></section>
-        <footer data-region="footer" class="row">
-            <p class="col-xs-12 text-muted">Copyright &copy; 2013 Joe Zimmerman. This is an example application used in the book, <em>A Thorough Introduction to MarionetteJS</em>.</p>
-        </footer>
+      <div class="navbar-header">
+        <a href="#list" class="navbar-brand">Quiz Engine</a>
+      </div>
     </div>
+  </header>
+
+<!-- Header ends -->
+
+<!-- Main content starts -->
+
+<div class="content">
+
+    <div class="container">
+
+        <section id="appBody" data-region="body" class="row"></section>
+
+    </div>
+
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+  <footer data-region="footer" class="row">
+    <p class="col-xs-12 text-muted">Copyright &copy; 2013 Joe Zimmerman. This is an example application used in the book, <em>A Thorough Introduction to MarionetteJS</em>.</p>
+  </footer>
+
+<!-- Footer ends -->
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>    
 
 <!-- Templates -->
     <script type="text/template" id="quizlist-quizzes">
@@ -183,6 +208,10 @@
 <!-- Libraries -->
     <!-- JQuery -->
     <script src="http://localhost:2000/js/lib/jquery.js"></script>
+    <!-- Bootstrap -->
+    <script src="http://localhost:2000/js/lib/bootstrap.min.js"></script> 
+    <!-- jQuery UI -->
+    <script src="http://localhost:2000/js/lib/jquery-ui.min.js"></script>
     <!-- Underscore -->    
     <script src="http://localhost:2000/js/lib/underscore.js"></script>
     <!-- Backbone -->    
