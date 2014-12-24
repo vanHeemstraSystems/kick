@@ -1,6 +1,6 @@
 QuizEngine.module('QuizCreator', function(QuizCreator) {
     
-    QuizCreator.FormView = Marionette.ItemView.extend({
+	QuizCreator.FormView = Marionette.ItemView.extend({
         template: '#quizcreator-form',
 
         events: {

@@ -1,5 +1,5 @@
+console.log("QuizEngine - Data.Question called");
 QuizEngine.module('Data', function(Data) {
-    console.log("QuizEngine - Data.Question called");     
     Data.Question = Backbone.Model.extend({
         defaults: {
             id: null,
@@ -8,13 +8,13 @@ QuizEngine.module('Data', function(Data) {
             answers: []
         },
         initialize: function() {
-            console.log("QuizEngine - modelQuestion.initialize called"); 
+			console.log("QuizEngine - Data.Question.initialize called");		
             var answers = this.get('answers');
             this.set('answers', new Data.Answers(answers));
         },
         // Custom toJSON
         toJSON: function() {
-            console.log("QuizEngine - modelQuestion.toJSON called");
+			console.log("QuizEngine - Data.Question.toJSON called");		
             var data = Backbone.Model.prototype.toJSON.call(this);
             if (data.answers && data.answers.toJSON) {
                 data.answers = data.answers.toJSON();

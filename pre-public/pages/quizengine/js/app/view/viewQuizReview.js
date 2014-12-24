@@ -1,6 +1,6 @@
 QuizEngine.module('Quiz', function(Quiz) {
     
-    Quiz.QuizReviewView = Marionette.ItemView.extend({
+	Quiz.QuizReviewView = Marionette.ItemView.extend({
         template: '#quiz-quizreview',
 
         templateHelpers: function() {

@@ -1,8 +1,11 @@
 QuizEngine.Helpers = QuizEngine.Helpers || {};
 QuizEngine.Helpers.SubAppManager = (function() {
-
+	console.log("QuizEngine - QuizEngine.Helpers.SubAppManager called");
     var SubAppManager = Marionette.Controller.extend({
         startSubApp: function(name, args) {
+			console.log("QuizEngine - QuizEngine.Helpers.SubAppManager.startSubApp called");
+			console.log("QuizEngine - name: " + name);
+			console.log("QuizEngine - args: " + args);
             var newApp = QuizEngine.module(name);
 
             if (this.currentApp === newApp) {
