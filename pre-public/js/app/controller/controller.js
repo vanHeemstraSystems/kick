@@ -2,7 +2,7 @@
  * Controller
  */
 define(['./Base'], function (Base) {
-    console.log('CORE: controller called');
+    console.log('KICK: controller called');
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     	var r = (d + Math.random()*16)%16 | 0;
@@ -13,6 +13,6 @@ define(['./Base'], function (Base) {
 
     // following this example, slightly
     // http://sandbox.thewikies.com/javascript-mvc-hello-world/index.2.html
-        
+    
     return _Controller;
 });

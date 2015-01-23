@@ -2,15 +2,15 @@
  * ViewService
  */
 define(['./Base'], function (Base) {
-	console.log('CORE: viewService called');
+	console.log('KICK: viewService called');
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     	var r = (d + Math.random()*16)%16 | 0;
     	d = Math.floor(d/16);
     	return (c=='x' ? r : (r&0x7|0x8)).toString(16);
-    });	
+    });		
     var _ViewService = new Base(uuid);
-
+	
     // following this example, slightly
     // http://sandbox.thewikies.com/javascript-mvc-hello-world/index.2.html
 
@@ -20,10 +20,10 @@ define(['./Base'], function (Base) {
 //    var subscription = channel.subscribe(function(data) { $("#example1").html("Name: " + data.name); });
     // And someone publishes a first name change:
 //    channel.publish({ name: "Dr. Who" });
-
+	
 	// A viewService constructor might have a function that creates new viewService instances
 	_ViewService.find = function ( id ) {
-		console.log('CORE: viewService find(id) called');
+		console.log('KICK: viewService find(id) called');	
 		// Data used to create a new viewService may come from anywhere
 		// but in this case data comes from this inline object.
 		var ourData = {

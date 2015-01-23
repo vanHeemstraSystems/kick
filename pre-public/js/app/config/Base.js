@@ -2,13 +2,13 @@
  * ConfigBase
  */
 define(function () {
-    console.log('CORE: configBase called');	
+    console.log('KICK: configBase called');	
     function configBase(configs) {
         this.configs = configs;
     };
     configBase.prototype = {
         getConfigs: function () {
-            console.log('CORE: configBase getConfigs() called');            
+            console.log('KICK: configBase getConfigs() called');
             return this.configs;
         }
     };

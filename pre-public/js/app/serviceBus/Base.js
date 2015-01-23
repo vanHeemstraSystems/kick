@@ -2,12 +2,12 @@
  * ServiceBusBase
  */
 define(function () {
-    console.log('CORE: serviceBusBase called');
+    console.log('KICK: serviceBusBase called');	
     function serviceBusBase(id) {
         this.id = id;
     };
     serviceBusBase.prototype = {
-        // to do
+		// to do
     };
     return serviceBusBase;
 });

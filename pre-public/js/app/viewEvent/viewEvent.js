@@ -7,7 +7,7 @@ var ViewEvent456 = 1 << 1;
 var ViewEventSubscribe = 1 << 2;
 
 define(['./Base'], function (Base) {
-    console.log('CORE: viewEvent called'); 
+    console.log('KICK: viewEvent called'); 
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = (d + Math.random()*16)%16 | 0;
@@ -23,19 +23,19 @@ define(['./Base'], function (Base) {
     _ViewEvent.raiseEvent = function (flag) {
         // Check if ViewEvent123 was passed.
         if (flag & ViewEvent123) {
-            console.log('SKIN: viewEvent123 raised');             
+            console.log('KICK: viewEvent123 raised');             
             // Run the ViewController's show function.
             _ViewController.loadView(123);
         }
         // Check if ViewEvent456 was passed.
         if (flag & ViewEvent456) {
-            console.log('SKIN: viewEvent456 raised');            
+            console.log('KICK: viewEvent456 raised');            
             // Run the ViewController's show function.
             _ViewController.loadView(456);
         }
         // Check if ViewEventSubscribe was passed.        
         if (flag & ViewEventSubscribe) {
-            console.log('SKIN: viewEventSubscribe raised');        
+            console.log('KICK: viewEventSubscribe raised');        
             // Subscribe ViewService
             _ViewController.subscribeViewService('subscribe');
         }        

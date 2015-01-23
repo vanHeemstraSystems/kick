@@ -2,89 +2,85 @@
  * ControllerBase
  */
 define(function () {
-    console.log('CORE: controllerBase called');
+    console.log('KICK: controllerBase called');
     function controllerBase(id) {
         this.id = id;
     };
     controllerBase.prototype = {
-    	setAppName: function (appName) {
-			console.log('CORE: controllerBase setAppName(appName) called');
-			this.appName = appName;
+    	setStoreName: function (storeName) {
+			console.log('KICK: controllerBase setStoreName(storeName) called');
+			this.storeName = storeName;
 		},
-		setModelController: function (modelController) {
-			console.log('CORE: controllerBase setModelController(modelController) called');
-			this.modelController = modelController;
-			this.modelController.setAppName(this.appName);
-			this.modelController.setConfig(this.config);
-			this.modelController.setServiceBus(this.serviceBus);
+		setAppController: function (appController) {
+			console.log('KICK: controllerBase setAppController(appController) called');
+			this.appController = appController;
+			this.appController.setStoreName(this.storeName);
+			this.appController.setConfig(this.config);
+            this.appController.setServiceBus(this.serviceBus);		
 		},
-		setModelEvent: function (modelEvent) {
-			console.log('CORE: controllerBase setModelEvent(modelEvent) called');
-			this.modelEvent = modelEvent;
-			this.modelController.setModelEvent(modelEvent);
+		setAppEvent: function (appEvent) {
+			console.log('KICK: controllerBase setAppEvent(appEvent) called');
+			this.appEvent = appEvent;
+			this.appController.setAppEvent(appEvent);
 		},
-		setModelService: function (modelService) {
-			console.log('CORE: controllerBase setModelService(modelService) called');			
-			this.modelService = modelService;
-			this.modelController.setModelService(modelService);			
+		setAppService: function (appService) {
+			console.log('KICK: controllerBase setAppService(appService) called');			
+			this.appService = appService;
+			this.appController.setAppService(appService);			
 		},
-        setModel: function (model) {
-        	console.log('CORE: controllerBase setModel(model) called');
-            this.model = model;
-            this.modelController.setModel(model);	
+        setApp: function (app) {
+        	console.log('KICK: controllerBase setApp(app) called');
+            this.app = app;
+            this.appController.setApp(app);	
         },
-		loadModel: function (id) {
-			console.log('CORE: controllerBase loadModel(id) called');			
-			this.modelController.loadModel(id);
-		},
-        renderModel: function () {
-        	console.log('CORE: controllerBase renderModel() called');     	
-			this.modelController.renderModel();
-        },		
-        subscribeModelService: function() {
-        	console.log('CORE: controllerBase subscribeModelService() called');
-        	this.modelController.subscribeModelService(); 
-        },		
+		loadApp: function (id) {
+			console.log('KICK: controllerBase loadApp(id) called');			
+			this.appController.loadApp(id);
+		},   
+        subscribeAppService: function() {
+        	console.log('KICK: controllerBase subscribeAppService() called');
+        	this.appController.subscribeAppService(); 
+        },
         setConfig: function (config) {
-        	console.log('CORE: controllerBase setConfig(config) called');
+        	console.log('KICK: controllerBase setConfig(config) called');
             this.config = config;
         },	
 		setServiceBus: function (serviceBus) {
-			console.log('CORE: controllerBase setServiceBus(serviceBus) called');
-			this.serviceBus = serviceBus;		
+			console.log('KICK: controllerBase setServiceBus(serviceBus) called');
+			this.serviceBus = serviceBus;			
 		},
 		setViewController: function (viewController) {
-			console.log('CORE: controllerBase setViewController(viewController) called');	
+			console.log('KICK: controllerBase setViewController(viewController) called');	
 			this.viewController = viewController;
-			this.viewController.setAppName(this.appName);
+			this.viewController.setStoreName(this.storeName);			
 			this.viewController.setConfig(this.config);
-			this.viewController.setServiceBus(this.serviceBus);	
+			this.viewController.setServiceBus(this.serviceBus);
 		},
 		setViewEvent: function (viewEvent) {
-			console.log('CORE: controllerBase setViewEvent(viewEvent) called');
+			console.log('KICK: controllerBase setViewEvent(viewEvent) called');
 			this.viewEvent = viewEvent;
 			this.viewController.setViewEvent(viewEvent);
 		},		
 		setViewService: function (viewService) {
-			console.log('CORE: controllerBase setViewService(viewService) called');			
+			console.log('KICK: controllerBase setViewService(viewService) called');			
 			this.viewService = viewService;
 			this.viewController.setViewService(viewService);		
 		},
 		setView: function (view) {
-			console.log('CORE: controllerBase setView(view) called');			
+			console.log('KICK: controllerBase setView(view) called');			
 			this.view = view;
 			this.viewController.setView(view);
 		},
 		loadView: function (id) {
-			console.log('CORE: controllerBase loadView(id) called');			
+			console.log('KICK: controllerBase loadView(id) called');			
 			this.viewController.loadView(id);
 		},
-        renderView: function (bodyDom) {
-        	console.log('CORE: controllerBase renderView(bodyDom) called');     	
-			this.viewController.renderView(bodyDom);
+        renderView: function (elementId) {
+        	console.log('KICK: controllerBase renderView(elementId) called');     	
+			this.viewController.renderView(elementId);
         },
         subscribeViewService: function() {
-        	console.log('CORE: controllerBase subscribeViewService() called');
+        	console.log('KICK: controllerBase subscribeViewService() called');
         	this.viewController.subscribeViewService(); 
         }
     };

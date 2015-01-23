@@ -30,43 +30,31 @@ define(function () {
         	console.log('KICK: mainBase setController(controller) called');
         	this.controller = controller;
         },
-        setAppName: function(appName) {
-        	console.log('KICK: mainBase setAppName(appName) called: appName =');
-        	console.log(appName);
-        	this.appName = appName;
-        },
+        setStoreName: function(storeName) {
+        	console.log('KICK: mainBase setStoreName(storeName) called: storeName =');
+        	console.log(storeName);
+        	this.storeName = storeName;
+        },  
         setElementId: function(elementId) {
         	console.log('KICK: mainBase setElementId(elementId) called: elementId =');
         	console.log(elementId);
         	this.elementId = elementId;
+        }, 
+        setApp: function(app) {
+        	console.log('KICK: mainBase setApp(app) called');
+        	this.app = app;
         },
-        setModel: function(model) {
-        	console.log('KICK: mainBase setModel(model) called');
-        	this.model = model;
+        setAppController: function(appController) {
+        	console.log('KICK: mainBase setAppController(appController) called');
+        	this.appController = appController;
         },
-        setModelController: function(modelController) {
-        	console.log('KICK: mainBase setModelController(modelController) called');
-        	this.modelController = modelController;
+        setAppEvent: function(appEvent) {
+        	console.log('KICK: mainBase setAppEvent(appEvent) called');
+        	this.appEvent = appEvent;
         },
-        setModelService: function(modelService) {
-        	console.log('KICK: mainBase setModelService(modelService) called');
-        	this.modelService = modelService;
-        },
-        setModelEvent: function(modelEvent) {
-            console.log('KICK: mainBase setModelEvent(modelEvent) called');
-            this.modelEvent = modelEvent;
-        },
-        setModelIndex: function(modelIndex) {
-            console.log('KICK: mainBase setModelIndex(modelIndex) called');
-            this.modelIndex = modelIndex;
-        },
-        loadModel: function(modelIndex) {
-            console.log('KICK: mainBase loadModel(modelIndex) called');
-            this.controller.loadModel(modelIndex);
-        },
-        renderModel: function() {
-            console.log('KICK: mainBase renderModel() called');
-            this.controller.renderModel();
+        setAppService: function(appService) {
+        	console.log('KICK: mainBase setAppService(appService) called');
+        	this.appService = appService;
         },
         setServiceBus: function(serviceBus) {
         	console.log('KICK: mainBase setServiceBus(serviceBus) called');
@@ -107,7 +95,7 @@ define(function () {
 				me.require(['../app/controller/controller'], function (controller) {
                     console.log('KICK: mainBase: controller required');
                     console.log(controller);
-                    me.controller = controller;
+                    me.controller = controller; 
                     callback(me, err, me.controller);
             	});
             }
@@ -124,7 +112,7 @@ define(function () {
 				me.require(['../app/config/config'], function (config) {
                     console.log('KICK: mainBase: config required');
                     console.log(config);
-                    me.config = config;
+                    me.config = config; 
                     callback(me, err, me.config);
             	});
             }
@@ -141,7 +129,7 @@ define(function () {
 				me.require(['../app/serviceBus/serviceBus'], function (serviceBus) {
                     console.log('KICK: mainBase: serviceBus required');
                     console.log(serviceBus);
-                    me.serviceBus = serviceBus;
+                    me.serviceBus = serviceBus; 
                     callback(me, err, me.serviceBus);
             	});
             }
@@ -151,72 +139,72 @@ define(function () {
         		callback(me, err, me.serviceBus);
         	}
     	},
-        readyModelController: function(me, callback) {
-        	console.log('KICK: mainBase readyModelController(me, callback) called');
+        readyAppController: function(me, callback) {
+        	console.log('KICK: mainBase readyAppController(me, callback) called');
         	var err = null;
-			if(typeof me.modelController === 'undefined') {
-				me.require(['../app/modelController/modelController'], function (modelController) {
-                    console.log('KICK: mainBase: modelController required');
-                    console.log(modelController);
-                    me.modelController = modelController;
-                    callback(me, err, me.modelController);
+			if(typeof me.appController === 'undefined') {
+				me.require(['../app/appController/appController'], function (appController) {
+                    console.log('KICK: mainBase: appController required');
+                    console.log(appController);
+                    me.appController = appController; 
+                    callback(me, err, me.appController);
             	});
             }
 			else {
-				me.modelController = me.modelController;
-				console.log(me.modelController);
-        		callback(me, err, me.modelController);
+				me.appController = me.appController;
+				console.log(me.appController);
+        		callback(me, err, me.appController);
         	}
     	},
-        readyModelService: function(me, callback) {
-        	console.log('KICK: mainBase readyModelService(me, callback) called');
+        readyAppService: function(me, callback) {
+        	console.log('KICK: mainBase readyAppService(me, callback) called');
         	var err = null;
-			if(typeof me.modelService === 'undefined') {
-				me.require(['../app/modelService/modelService'], function (modelService) {
-                    console.log('KICK: mainBase: modelService required');
-                    console.log(modelService);
-                    me.modelService = modelService;
-                    callback(me, err, me.modelService);
+			if(typeof me.appService === 'undefined') {
+				me.require(['../app/appService/appService'], function (appService) {
+                    console.log('KICK: mainBase: appService required');
+                    console.log(appService);
+                    me.appService = appService; 
+                    callback(me, err, me.appService);
             	});
             }
 			else {
-				me.modelService = me.modelService;
-				console.log(me.modelService);
-        		callback(me, err, me.modelService);
+				me.appService = me.appService;
+				console.log(me.appService);
+        		callback(me, err, me.appService);
         	}
     	},
-        readyModel: function(me, callback) {
-        	console.log('KICK: mainBase readyModel(me, callback) called');
+        readyApp: function(me, callback) {
+        	console.log('KICK: mainBase readyApp(me, callback) called');
         	var err = null;
-			if(typeof me.model === 'undefined') {
-				me.require(['../app/model/model'], function (model) {
-                    console.log('KICK: mainBase: model required');
-                    console.log(model);
-                    me.model = model;
-                    callback(me, err, me.model);
+			if(typeof me.app === 'undefined') {
+				me.require(['../app/app/app'], function (app) {
+                    console.log('KICK: mainBase: app required');
+                    console.log(app);
+                    me.app = app; 
+                    callback(me, err, me.app);
             	});
             }
 			else {
-				me.model = me.model;
-				console.log(me.model);
-        		callback(me, err, me.model);
+				me.app = me.app;
+				console.log(me.app);
+        		callback(me, err, me.app);
         	}
     	},
-        readyModelEvent: function(me, callback) {
-        	console.log('KICK: mainBase readyModelEvent(me, callback) called');
+        readyAppEvent: function(me, callback) {
+        	console.log('KICK: mainBase readyAppEvent(me, callback) called');
         	var err = null;
-			if(typeof me.modelEvent === 'undefined') {
-				me.require(['../app/modelEvent/modelEvent'], function (modelEvent) {
-                    console.log('KICK: mainBase: modelEvent required');
-                    console.log(modelEvent);
-                    me.modelEvent = modelEvent;
-                    callback(me, err, me.modelEvent);
+			if(typeof me.appEvent === 'undefined') {
+				me.require(['../app/appEvent/appEvent'], function (appEvent) {
+                    console.log('KICK: mainBase: appEvent required');
+                    console.log(appEvent);
+                    me.appEvent = appEvent; 
+                    callback(me, err, me.appEvent);
             	});
             }
 			else {
-				me.modelEvent = me.modelEvent;
-				console.log(me.modelEvent);
-        		callback(me, err, me.modelEvent);
+				me.appEvent = me.appEvent;
+				console.log(me.appEvent);
+        		callback(me, err, me.appEvent);
         	}
     	},
         readyViewController: function(me, callback) {
@@ -226,7 +214,7 @@ define(function () {
 				me.require(['../app/viewController/viewController'], function (viewController) {
                     console.log('KICK: mainBase: viewController required');
                     console.log(viewController);
-                    me.viewController = viewController;
+                    me.viewController = viewController; 
                     callback(me, err, me.viewController);
             	});
             }
@@ -243,7 +231,7 @@ define(function () {
 				me.require(['../app/viewService/viewService'], function (viewService) {
                     console.log('KICK: mainBase: viewService required');
                     console.log(viewService);
-                    me.viewService = viewService;
+                    me.viewService = viewService; 
                     callback(me, err, me.viewService);
             	});
             }
@@ -260,7 +248,7 @@ define(function () {
 				me.require(['../app/view/view'], function (view) {
                     console.log('KICK: mainBase: view required');
                     console.log(view);
-                    me.view = view;
+                    me.view = view; 
                     callback(me, err, me.view);
             	});
             }
@@ -277,7 +265,7 @@ define(function () {
 				me.require(['../app/viewEvent/viewEvent'], function (viewEvent) {
                     console.log('KICK: mainBase: viewEvent required');
                     console.log(viewEvent);
-                    me.viewEvent = viewEvent;
+                    me.viewEvent = viewEvent; 
                     callback(me, err, me.viewEvent);
             	});
             }
@@ -300,18 +288,18 @@ define(function () {
         			console.log('KICK: mainBase ready controller:');
         			console.log(controller);
         			me.controller = controller;
-					// Set appName
-				    console.log('KICK: mainBase ready me.controller.setAppName(me.appName):');
-					// AppName
-					if(typeof me.appName === 'undefined') {
-						me.appName = 'unknown'; // default
-						console.log(me.appName);
-						me.controller.setAppName(me.appName);
+					// Set storeName
+				    console.log('KICK: mainBase ready me.controller.setStoreName(me.storeName):');
+					// StoreName
+					if(typeof me.storeName === 'undefined') {
+						me.storeName = 'unknown'; // default
+						console.log(me.storeName);
+						me.controller.setStoreName(me.storeName);
 					}
 					else {
-						me.appName = me.appName;
-						console.log(me.appName);
-						me.controller.setAppName(me.appName);
+						me.storeName = me.storeName;
+						console.log(me.storeName);
+						me.controller.setStoreName(me.storeName);
 					}
 					// Config
 					me.readyConfig(me, function(me, err, config) {
@@ -359,125 +347,112 @@ define(function () {
 										console.log(me.serviceBus);
 										me.controller.setServiceBus(me.serviceBus);
 									}
-									// ModelController
-									me.readyModelController(me, function(me, err, modelController) {
+									// AppController
+									me.readyAppController(me, function(me, err, appController) {
 										if(err) {
-											console.log('KICK: mainBase readyModelController error:');
+											console.log('KICK: mainBase readyAppController error:');
 											console.log(err);
 										}
 										else {
-											console.log('KICK: mainBase ready modelController:');
-											console.log(modelController);
-											me.modelController = modelController;
-											// Set modelController
-											console.log('KICK: mainBase ready me.controller.setModelController(me.modelController):');
-											// ModelController
-											if(typeof me.modelController === 'undefined') {
-												me.modelController = {}; // default
-												console.log(me.modelController);
-												me.controller.setModelController(me.modelController);
+											console.log('KICK: mainBase ready appController:');
+											console.log(appController);
+											me.appController = appController;
+											// Set appController
+											console.log('KICK: mainBase ready me.controller.setAppController(me.appController):');
+											// AppController
+											if(typeof me.appController === 'undefined') {
+												me.appController = {}; // default
+												console.log(me.appController);
+												me.controller.setAppController(me.appController);
 											}
 											else {
-												me.modelController = me.modelController;
-												console.log(me.modelController);
-												me.controller.setModelController(me.modelController);
+												me.appController = me.appController;
+												console.log(me.appController);
+												me.controller.setAppController(me.appController);
 											}
-											// ModelService
-											me.readyModelService(me, function(me, err, modelService) {
+											// AppService
+											me.readyAppService(me, function(me, err, appService) {
 												if(err) {
-													console.log('KICK: mainBase readyModelService error:');
+													console.log('KICK: mainBase readyAppService error:');
 													console.log(err);
 												}
 												else {
-													console.log('KICK: mainBase ready modelService:');
-													console.log(modelService);
-													me.modelService = modelService;
-													// Set modelService
-													console.log('KICK: mainBase ready me.controller.setModelService(me.modelService):');
-													// ModelService
-													if(typeof me.modelService === 'undefined') {
-														me.modelService = {}; // default
-														console.log(me.modelService);
-														me.controller.setModelService(me.modelService);
+													console.log('KICK: mainBase ready appService:');
+													console.log(appService);
+													me.appService = appService;
+													// Set appService
+													console.log('KICK: mainBase ready me.controller.setAppService(me.appService):');
+													// AppService
+													if(typeof me.appService === 'undefined') {
+														me.appService = {}; // default
+														console.log(me.appService);
+														me.controller.setAppService(me.appService);
 													}
 													else {
-														me.modelService = me.modelService;
-														console.log(me.modelService);
-														me.controller.setModelService(me.modelService);
+														me.appService = me.appService;
+														console.log(me.appService);
+														me.controller.setAppService(me.appService);
 													}
-													// Model
-													me.readyModel(me, function(me, err, model) {
+													// App
+													me.readyApp(me, function(me, err, app) {
 														if(err) {
-															console.log('KICK: mainBase readyModel error:');
+															console.log('KICK: mainBase readyApp error:');
 															console.log(err);
 														}
 														else {
-															console.log('KICK: mainBase ready model:');
-															console.log(model);
-															me.model = model;
-															// Set model
-															console.log('KICK: mainBase ready me.controller.setModel(me.model):');
-															// Model
-															if(typeof me.model === 'undefined') {
-																me.model = {}; // default
-																console.log(me.model);
-																me.controller.setModel(me.model);
+															console.log('KICK: mainBase ready app:');
+															console.log(app);
+															me.app = app;
+															// Set app
+															console.log('KICK: mainBase ready me.controller.setApp(me.app):');
+															// App
+															if(typeof me.app === 'undefined') {
+																me.app = {}; // default
+																console.log(me.app);
+																me.controller.setApp(me.app);
 															}
 															else {
-																me.model = me.model;
-																console.log(me.model);
-																me.controller.setModel(me.model);
+																me.app = me.app;
+																console.log(me.app);
+																me.controller.setApp(me.app);
 															}
-															// ModelEvent
-															me.readyModelEvent(me, function(me, err, modelEvent) {
+															// AppEvent
+															me.readyAppEvent(me, function(me, err, appEvent) {
 																if(err) {
-																	console.log('KICK: mainBase readyModelEvent error:');
+																	console.log('KICK: mainBase readyAppEvent error:');
 																	console.log(err);
 																}
 																else {
-																	console.log('KICK: mainBase ready modelEvent:');
-																	console.log(modelEvent);
-																	me.modelEvent = modelEvent;
-																	// Set modelEvent
-																	console.log('KICK: mainBase ready me.controller.setModelEvent(me.modelEvent):');
-																	// ModelEvent
-																	if(typeof me.modelEvent === 'undefined') {
-																		me.modelEvent = {}; // default
-																		console.log(me.modelEvent);
-																		me.controller.setModelEvent(me.modelEvent);
+																	console.log('KICK: mainBase ready appEvent:');
+																	console.log(appEvent);
+																	me.appEvent = appEvent;
+																	// Set appEvent
+																	console.log('KICK: mainBase ready me.controller.setAppEvent(me.appEvent):');
+																	// AppEvent
+																	if(typeof me.appEvent === 'undefined') {
+																		me.appEvent = {}; // default
+																		console.log(me.appEvent);
+																		me.controller.setAppEvent(me.appEvent);
 																	}
 																	else {
-																		me.modelEvent = me.modelEvent;
-																		console.log(me.modelEvent);
-																		me.controller.setModelEvent(me.modelEvent);
+																		me.appEvent = me.appEvent;
+																		console.log(me.appEvent);
+																		me.controller.setAppEvent(me.appEvent);
 																	}
-																	// Subscribe ModelService
-																	console.log('KICK: mainBase ready this.controller.subscribeModelService()');
-				    												me.controller.subscribeModelService();
-                                    // LoadModel, before renderModel
-                                    console.log('KICK: mainBase ready me.controller.loadModel(modelIndex):')
-                                    // ModelIndex
-                                    if(typeof me.modelIndex === 'undefined') {
-                                        me.modelIndex = 0; // default
-                                        console.log(me.modelIndex);
-                                        me.controller.loadModel(me.modelIndex);
-                                    }
-                                    else {
-                                        me.modelIndex = me.modelIndex;
-                                        console.log(me.modelIndex);
-                                        me.controller.loadModel(me.loadIndex);
-                                    }// oef ModelIndex
-                                    // RenderModel, after loadModel
-                                    console.log('KICK: mainBase ready me.controller.renderModel():');
-                                    me.controller.renderModel();
+																	// Subscribe AppService
+																	console.log('KICK: mainBase ready this.controller.subscribeAppService()');			    
+				    												me.controller.subscribeAppService();
+				    												// More ...
+
+
 																}
-															});// eof ModelEvent
+															});// eof AppEvent
 														}
-													});// eof Model
+													});// eof App
 												}
-											});// eof ModelService
+											});// eof AppService
 										}
-									});// eof ModelController
+									});// eof AppController
 									// ViewController
 									me.readyViewController(me, function(me, err, viewController) {
 										if(err) {
@@ -571,34 +546,34 @@ define(function () {
 																		me.controller.setViewEvent(me.viewEvent);
 																	} // eof ViewEvent
 																	// Subscribe ViewService
-																	console.log('KICK: mainBase ready me.controller.subscribeViewService()');
+																	console.log('KICK: mainBase ready me.controller.subscribeViewService()');			    
 				    												me.controller.subscribeViewService();
 				    												// LoadView, before renderView
-                                    console.log('KICK: mainBase ready me.controller.loadView(viewIndex):')
-                                    // ViewIndex
-                                    if(typeof me.viewIndex === 'undefined') {
-                                      me.viewIndex = 0; // default
-                                      console.log(me.viewIndex);
-                                      me.controller.loadView(me.viewIndex);
-                                    }
-                                    else {
-                                      me.viewIndex = me.viewIndex;
-                                      console.log(me.viewIndex);
-                                      me.controller.loadView(me.viewIndex);
-                                    }// oef ViewIndex
-                                    // RenderView, after loadView
-                                    console.log('KICK: mainBase ready me.controller.renderView(elementId):');
-                                    // ElementId
-                                    if(typeof me.elementId === 'undefined'){
-                                      me.elementId = 'unknown'; // default
-                                      console.log(me.elementId);
-                                      me.controller.renderView(me.elementId);
-                                    }
-                                    else {
-                                      me.elementId = me.elementId;
-                                      console.log(me.elementId);
-                                      me.controller.renderView(me.elementId);
-                                    }// eof ElementId
+                                                                    console.log('KICK: mainBase ready me.controller.loadView(viewIndex):')
+                                                                    // ViewIndex
+                                                                    if(typeof me.viewIndex === 'undefined') {
+                                                                        me.viewIndex = 0; // default
+                                                                        console.log(me.viewIndex);
+                                                                        me.controller.loadView(me.viewIndex);
+                                                                    }
+                                                                    else {
+                                                                        me.viewIndex = me.viewIndex;
+                                                                        console.log(me.viewIndex);
+                                                                        me.controller.loadView(me.viewIndex);
+                                                                    }// oef ViewIndex
+                                                                    // RenderView, after loadView
+                                                                    console.log('KICK: mainBase ready me.controller.renderView(elementId):'); 
+                                                                    // ElementId
+                                                                    if(typeof me.elementId === 'undefined'){
+                                                                        me.elementId = 'unknown'; // default
+                                                                        console.log(me.elementId);            
+                                                                        me.controller.renderView(me.elementId);
+                                                                    }
+                                                                    else {
+                                                                        me.elementId = me.elementId;
+                                                                        console.log(me.elementId);
+                                                                        me.controller.renderView(me.elementId);
+                                                                    }// eof ElementId
 																}
 															});// eof ViewEvent
 														}

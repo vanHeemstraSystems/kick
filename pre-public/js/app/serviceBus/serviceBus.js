@@ -3,21 +3,21 @@
  * See also https://github.com/postaljs/postal.js/wiki/API
  */
 define(['./Base'], function (Base) {
-    console.log('CORE: serviceBus called');
+    console.log('KICK: serviceBus called');
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    	var r = (d + Math.random()*16)%16 | 0;
-    	d = Math.floor(d/16);
-    	return (c=='x' ? r : (r&0x7|0x8)).toString(16);
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x7|0x8)).toString(16);
     });
     var _ServiceBus = new Base(uuid);
     var prevServiceBus = global.serviceBus;
     /*
      * Conduit
-	 */
-	function Conduit(options) { 
-		console.log('CORE: ServiceBus Conduit(options) called');
-		if (typeof options.target !== "function") {
+     */
+    function Conduit(options) { 
+        console.log('KICK: ServiceBus Conduit(options) called');
+        if (typeof options.target !== "function") {
             throw new Error("You can only make functions into Conduits.");
         }
         var _steps = {
@@ -44,7 +44,7 @@ define(['./Base'], function (Base) {
             _steps.all = _steps.pre.concat([_targetStep].concat(_steps.post));
         };
         _genPipeline();
-		var conduit = function () {
+        var conduit = function () {
             var idx = 0;
             var retval;
             var phase;
@@ -72,7 +72,7 @@ define(['./Base'], function (Base) {
             };
             next.apply(this, arguments);
             return retval;
-		};
+        };
         conduit.steps = function () {
             return _steps.all;
         };
@@ -121,27 +121,27 @@ define(['./Base'], function (Base) {
             }
             return _target;
         };
-		return conduit;
+        return conduit;
     };// eof Conduit
-	Conduit.Sync = function (options) {
-    	console.log('CORE: ServiceBus Conduit.Sync(options) called');
+    Conduit.Sync = function (options) {
+        console.log('KICK: ServiceBus Conduit.Sync(options) called');
         options.sync = true;
         return Conduit.call(this, options)
     };
-	Conduit.Async = function (options) {
-    	console.log('CORE: ServiceBus Conduit.Async(options) called');
+    Conduit.Async = function (options) {
+        console.log('KICK: ServiceBus Conduit.Async(options) called');
         return Conduit.call(this, options);
     };
     /*
      * Channel
      */
     var ChannelDefinition = function (channelName) {
-        console.log('CORE: ServiceBus ChannelDefinition(channelName) called');  
+        console.log('KICK: ServiceBus ChannelDefinition(channelName) called');  
         this.channel = channelName || _ServiceBus.configuration.DEFAULT_CHANNEL;
         this.initialize();
     };   
     ChannelDefinition.prototype.initialize = function () {
-        console.log('CORE: ServiceBus ChannelDefinition.prototype.initialize() called');
+        console.log('KICK: ServiceBus ChannelDefinition.prototype.initialize() called');
         var oldPub = this.publish;
         this.publish = new Conduit.Async({
             target: oldPub,
@@ -149,7 +149,7 @@ define(['./Base'], function (Base) {
         });
     };    
     ChannelDefinition.prototype.subscribe = function () {
-        console.log('CORE: ServiceBus ChannelDefinition.prototype.subscribe() called');
+        console.log('KICK: ServiceBus ChannelDefinition.prototype.subscribe() called');
         return _ServiceBus.subscribe({
             channel: this.channel,
             topic: (arguments.length === 1 ? arguments[0].topic : arguments[0]),
@@ -157,7 +157,7 @@ define(['./Base'], function (Base) {
         });
     };    
     ChannelDefinition.prototype.publish = function () {
-        console.log('CORE: ServiceBus ChannelDefinition.prototype.publish() called');
+        console.log('KICK: ServiceBus ChannelDefinition.prototype.publish() called');
         var envelope = arguments.length === 1 ? (Object.prototype.toString.call(arguments[0]) === "[object String]" ? {
             topic: arguments[0]
         } : arguments[0]) : {
@@ -171,7 +171,7 @@ define(['./Base'], function (Base) {
      * Subscription
      */
     var SubscriptionDefinition = function (channel, topic, callback) {
-        console.log('CORE: ServiceBus SubscriptionDefinition(channel, topic, callback) called');
+        console.log('KICK: ServiceBus SubscriptionDefinition(channel, topic, callback) called');
         if (arguments.length !== 3) {
             throw new Error("You must provide a channel, topic and callback when creating a SubscriptionDefinition instance.");
         }
@@ -184,17 +184,17 @@ define(['./Base'], function (Base) {
     };    
     SubscriptionDefinition.prototype = {
         after: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition after() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition after() called');
             this.callback.after.apply(this, arguments);
             return this;
         },
         before: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition before() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition before() called');
             this.callback.before.apply(this, arguments);
             return this;
         },
         "catch": function (errorHandler) {
-            console.log('CORE: ServiceBus SubscriptionDefinition "catch"(errorHandler) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition "catch"(errorHandler) called');
             var original = this.callback.target();
             var safeTarget = function () {
                 try {
@@ -207,12 +207,12 @@ define(['./Base'], function (Base) {
             return this;
         },
         defer: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition defer() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition defer() called');
             this.callback.before(strats.defer());
             return this;
         },
         disposeAfter: function (maxCalls) {
-            console.log('CORE: ServiceBus SubscriptionDefinition disposeAfter(maxCalls) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition disposeAfter(maxCalls) called');
             var self = this;
             self.callback.before(strats.stopAfter(maxCalls, function () {
                 self.unsubscribe.call(self);
@@ -220,19 +220,19 @@ define(['./Base'], function (Base) {
             return self;
         },
         distinctUntilChanged: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition distinctUntilChanged() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition distinctUntilChanged() called');
             this.callback.before(strats.distinct());
             return this;
         },
         distinct: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition distinct() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition distinct() called');
             this.callback.before(strats.distinct({
                 all: true
             }));
             return this;
         },
         logError: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition logError() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition logError() called');
             if (console) {
                 var report;
                 if (console.warn) {
@@ -245,12 +245,12 @@ define(['./Base'], function (Base) {
             return this;
         },
         once: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition once() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition once() called');
             this.disposeAfter(1);
             return this;
         },
         subscribe: function (callback) {
-            console.log('CORE: ServiceBus SubscriptionDefinition subscribe(callback) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition subscribe(callback) called');
             this.callback = new Conduit.Async({
                 target: callback,
                 context: this
@@ -258,41 +258,41 @@ define(['./Base'], function (Base) {
             return this;
         },
         unsubscribe: function () {
-            console.log('CORE: ServiceBus SubscriptionDefinition unsubscribe() called');
+            console.log('KICK: ServiceBus SubscriptionDefinition unsubscribe() called');
             if (!this.inactive) {
                 this.inactive = true;
                 _ServiceBus.unsubscribe(this);
             }
         },
         withConstraint: function (predicate) {
-            console.log('CORE: ServiceBus SubscriptionDefinition withConstraint(predicate) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition withConstraint(predicate) called');
             this.callback.before(strats.withConstraint(predicate));
             return this;
         },
         withConstraints: function (preds) {
-            console.log('CORE: ServiceBus SubscriptionDefinition withConstraints(preds) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition withConstraints(preds) called');
             while (preds.length) {
                 this.callback.before(strats.withConstraint(preds.shift()));
             }
             return this;
         },
         withDebounce: function (milliseconds, immediate) {
-            console.log('CORE: ServiceBus SubscriptionDefinition withDebounce(milliseconds, immediate) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition withDebounce(milliseconds, immediate) called');
             this.callback.before(strats.withDebounce(milliseconds, immediate));
             return this;
         },
         withDelay: function (milliseconds) {
-            console.log('CORE: ServiceBus SubscriptionDefinition withDelay(milliseconds) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition withDelay(milliseconds) called');
             this.callback.before(strats.withDelay(milliseconds));
             return this;
         },
         withThrottle: function (milliseconds) {
-            console.log('CORE: ServiceBus SubscriptionDefinition withThrottle(milliseconds) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition withThrottle(milliseconds) called');
             this.callback.before(strats.withThrottle(milliseconds));
             return this;
         },
         withContext: function (context) {
-            console.log('CORE: ServiceBus SubscriptionDefinition withContext(context) called');
+            console.log('KICK: ServiceBus SubscriptionDefinition withContext(context) called');
             this.callback.context(context);
             return this;
         }
@@ -301,7 +301,7 @@ define(['./Base'], function (Base) {
      * Predicates
      */
     var ConsecutiveDistinctPredicate = function () {
-        console.log('CORE: ServiceBus ConsecutiveDistinctPredicate() called');
+        console.log('KICK: ServiceBus ConsecutiveDistinctPredicate() called');
         var previous;
         return function (data) {
             var eq = false;
@@ -316,7 +316,7 @@ define(['./Base'], function (Base) {
         };
     };
     var DistinctPredicate = function () {
-        console.log('CORE: ServiceBus DistinctPredicate() called');
+        console.log('KICK: ServiceBus DistinctPredicate() called');
         var previous = [];
         return function (data) {
             var isDistinct = !_.any(previous, function (p) {
@@ -336,7 +336,7 @@ define(['./Base'], function (Base) {
      */
     var strats = {
         withDelay: function (ms) {
-            console.log('CORE: ServiceBus strats withDelay(ms) called');
+            console.log('KICK: ServiceBus strats withDelay(ms) called');
             if (_.isNaN(ms)) {
                 throw "Milliseconds must be a number";
             }
@@ -350,11 +350,11 @@ define(['./Base'], function (Base) {
             };
         },
         defer: function () {
-            console.log('CORE: ServiceBus strats defer() called');
+            console.log('KICK: ServiceBus strats defer() called');
             return this.withDelay(0);
         },
         stopAfter: function (maxCalls, callback) {
-            console.log('CORE: ServiceBus strats stopAfter(maxCalls, callback) called');
+            console.log('KICK: ServiceBus strats stopAfter(maxCalls, callback) called');
             if (_.isNaN(maxCalls) || maxCalls <= 0) {
                 throw "The value provided to disposeAfter (maxCalls) must be a number greater than zero.";
             }
@@ -368,7 +368,7 @@ define(['./Base'], function (Base) {
             };
         },
         withThrottle: function (ms) {
-            console.log('CORE: ServiceBus strats withThrottle(ms) called');
+            console.log('KICK: ServiceBus strats withThrottle(ms) called');
             if (_.isNaN(ms)) {
                 throw "Milliseconds must be a number";
             }
@@ -380,7 +380,7 @@ define(['./Base'], function (Base) {
             };
         },
         withDebounce: function (ms, immediate) {
-            console.log('CORE: ServiceBus strats withDebounce(ms, immediate) called');
+            console.log('KICK: ServiceBus strats withDebounce(ms, immediate) called');
             if (_.isNaN(ms)) {
                 throw "Milliseconds must be a number";
             }
@@ -392,7 +392,7 @@ define(['./Base'], function (Base) {
             };
         },
         withConstraint: function (pred) {
-            console.log('CORE: ServiceBus strats withConstraint(pred) called');
+            console.log('KICK: ServiceBus strats withConstraint(pred) called');
             if (!_.isFunction(pred)) {
                 throw "Predicate constraint must be a function";
             }
@@ -406,7 +406,7 @@ define(['./Base'], function (Base) {
             };
         },
         distinct: function (options) {
-            console.log('CORE: ServiceBus strats distinct(options) called');
+            console.log('KICK: ServiceBus strats distinct(options) called');
             options = options || {};
             var accessor = function (args) {
                 return args[0];
@@ -429,7 +429,7 @@ define(['./Base'], function (Base) {
         cache: {},
         regex: {},
         compare: function (binding, topic) {
-            console.log('CORE: ServiceBus bindingsResolver compare(binding, topic) called');
+            console.log('KICK: ServiceBus bindingsResolver compare(binding, topic) called');
             var pattern, rgx, prevSegment, result = (this.cache[topic] && this.cache[topic][binding]);
             if (typeof result !== "undefined") {
                 return result;
@@ -457,7 +457,7 @@ define(['./Base'], function (Base) {
             return result;
         },
         reset: function () {
-            console.log('CORE: ServiceBus bindingsResolver reset() called');
+            console.log('KICK: ServiceBus bindingsResolver reset() called');
             this.cache = {};
             this.regex = {};
         }
@@ -466,7 +466,7 @@ define(['./Base'], function (Base) {
      * Functions
      */
     var fireSub = function (subDef, envelope) {
-        console.log('CORE: ServiceBus fireSub(subDef, envelope) called');         
+        console.log('KICK: ServiceBus fireSub(subDef, envelope) called');         
         if (!subDef.inactive && _ServiceBus.configuration.resolver.compare(subDef.topic, envelope.topic)) {
             subDef.callback(envelope.data, envelope);
         }
@@ -474,13 +474,13 @@ define(['./Base'], function (Base) {
     var pubInProgress = 0;
     var unSubQueue = [];
     function clearUnSubQueue() {
-        console.log('CORE: ServiceBus clearUnSubQueue() called');         
+        console.log('KICK: ServiceBus clearUnSubQueue() called');         
         while (unSubQueue.length) {
             _ServiceBus.unsubscribe(unSubQueue.shift());
         }
     };
     function getSystemMessage(kind, subDef) {
-        console.log('CORE: ServiceBus getSystemMessage(kind, subDef) called');        
+        console.log('KICK: ServiceBus getSystemMessage(kind, subDef) called');        
         return {
             channel: _ServiceBus.configuration.SYSTEM_CHANNEL,
             topic: "subscription." + kind,
@@ -492,7 +492,7 @@ define(['./Base'], function (Base) {
         };
     };
     function getPredicate(options) {
-        console.log('CORE: ServiceBus getPredicate(options) called');        
+        console.log('KICK: ServiceBus getPredicate(options) called');        
         if (typeof options === "function") {
             return options;
         } else if (!options) {
@@ -520,7 +520,7 @@ define(['./Base'], function (Base) {
         }
     };
     function subscribe(options) {
-    	console.log('CORE: ServiceBus subscribe(options) called');
+        console.log('KICK: ServiceBus subscribe(options) called');
         var subDef = new SubscriptionDefinition(options.channel || this.configuration.DEFAULT_CHANNEL, options.topic, options.callback);
         var channel = this.subscriptions[subDef.channel];
         var subs;
@@ -535,7 +535,7 @@ define(['./Base'], function (Base) {
         return subDef;
     };
     function publish(envelope) {
-        console.log('CORE: ServiceBus publish(envelope) called');        
+        console.log('KICK: ServiceBus publish(envelope) called');        
         ++pubInProgress;
         envelope.channel = envelope.channel || this.configuration.DEFAULT_CHANNEL;
         envelope.timeStamp = new Date();
@@ -559,7 +559,7 @@ define(['./Base'], function (Base) {
         }
     };
     function unsubscribe() {
-        console.log('CORE: ServiceBus unsubscribe() called');        
+        console.log('KICK: ServiceBus unsubscribe() called');        
         var idx = 0;
         var subs = Array.prototype.slice.call(arguments, 0);
         var subDef;
@@ -614,11 +614,11 @@ define(['./Base'], function (Base) {
      * ServiceBus Functions
      */
     _ServiceBus.channel = function (channelName) {
-        console.log('CORE: ServiceBus _ServiceBus.channel(channelName) called');        
+        console.log('KICK: ServiceBus _ServiceBus.channel(channelName) called');        
         return new ChannelDefinition(channelName);
     };
     _ServiceBus.addWireTap = function (callback) {
-        console.log('CORE: ServiceBus _ServiceBus.addWireTap(callback) called');        
+        console.log('KICK: ServiceBus _ServiceBus.addWireTap(callback) called');        
         var self = this;
         self.wireTaps.push(callback);
         return function () {
@@ -629,7 +629,7 @@ define(['./Base'], function (Base) {
         };
     };
     _ServiceBus.noConflict = function () {
-        console.log('CORE: ServiceBus _ServiceBus.noConflict() called');
+        console.log('KICK: ServiceBus _ServiceBus.noConflict() called');
         if (typeof window === "undefined" || (typeof window !== "undefined" && typeof define === "function" && define.amd)) {
             throw new Error("noConflict can only be used in browser clients which aren't using AMD modules");
         }
@@ -637,7 +637,7 @@ define(['./Base'], function (Base) {
         return this;
     };
     _ServiceBus.getSubscribersFor = function (options) {
-        console.log('CORE: ServiceBus _ServiceBus.getSubscribersFor(options) called');        
+        console.log('KICK: ServiceBus _ServiceBus.getSubscribersFor(options) called');        
         var result = [];
         _.each(this.subscriptions, function (channel) {
             _.each(channel, function (subList) {
@@ -647,13 +647,13 @@ define(['./Base'], function (Base) {
         return result;
     };
     _ServiceBus.reset = function () {
-        console.log('CORE: ServiceBus _ServiceBus.reset() called');        
+        console.log('KICK: ServiceBus _ServiceBus.reset() called');        
         this.unsubscribeFor();
         this.configuration.resolver.reset();
         this.subscriptions = {};
     };
     _ServiceBus.unsubscribeFor = function (options) {
-        console.log('CORE: ServiceBus _ServiceBus.unsubscribeFor(options) called');        
+        console.log('KICK: ServiceBus _ServiceBus.unsubscribeFor(options) called');        
         var toDispose = [];
         if (this.subscriptions) {
             toDispose = this.getSubscribersFor(options);
