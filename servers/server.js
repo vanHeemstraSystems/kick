@@ -236,8 +236,8 @@ if('development' == app.settings.env){
     app.enableDeviceHelpers();
     app.enableViewRouting();
 	app.use(sassMiddleware({
-		src: path.join(__dirname, '/../public/sass'),
-		dest: path.join(__dirname + '/../public/css'),
+		src: path.join(__dirname, '/../public'),
+		dest: path.join(__dirname + '/../public'), // Uses the same dir, but with extension .scss
 		debug: true,
 		outputStyle: 'compressed',
 		prefix:  '/css'
