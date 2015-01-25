@@ -19,6 +19,7 @@ var express = require('express'),
 	methodOverride = require('method-override'),
 	errorHandler = require('errorhandler'),
 	sass = require('node-sass'),
+	sassMiddleware = require('node-sass-middleware'),	
 	session = require('express-session'),
 	passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy,
@@ -234,7 +235,7 @@ if('development' == app.settings.env){
     app.use(device.capture());
     app.enableDeviceHelpers();
     app.enableViewRouting();
-	app.use(sass.middleware({
+	app.use(sassMiddleware({
 		src: path.join(__dirname, '/../public/sass'),
 		dest: path.join(__dirname + '/../public/css'),
 		debug: true,
