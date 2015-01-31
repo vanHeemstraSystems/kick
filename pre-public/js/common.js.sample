@@ -11,6 +11,7 @@ var global = self;
 //directory.
 requirejs.config({
     baseUrl: 'js/lib',
+    urlArgs: 'bust=' +  (new Date()).getTime(), // Forces to receive non-cached resources
     paths: {
         app: '../app',
         lodash: 'lodash',
