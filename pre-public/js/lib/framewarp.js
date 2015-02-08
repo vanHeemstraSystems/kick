@@ -19,8 +19,8 @@
 		settings = $.extend({
 			cache: true,
 			url: '',
-			width: 810,
-			height: 480,
+			width: 770,
+			height: 547,
 			closeOnBackgroundClick: true,
 			onMessage:function(){},
 			onShow:function(){}
@@ -168,7 +168,7 @@
 	}
 
 	function sameOrigin(url){
-		console.log('SKIN: frameWarp sameOrigin(url) called');
+		console.log('CORE: frameWarp sameOrigin(url) called');
 		// Compare whether the url belongs to the
 		// local site or is remote
 
