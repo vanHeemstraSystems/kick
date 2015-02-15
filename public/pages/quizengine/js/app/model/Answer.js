@@ -1,1 +1,0 @@
-QuizEngine.module("Data",function(e){e.Answer=Backbone.Model.extend({defaults:{text:""}})});

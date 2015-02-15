@@ -1,1 +1,0 @@
-QuizEngine.module("Data",function(e){e.addInitializer(function(t){e.questions=new e.Categories(t&&t.data&&t.data.questions||[]),e.quizzes=new e.Quizzes(t&&t.data&&t.data.quizzes||[])}),e.addFinalizer(function(){delete e.questions,delete e.quizzes})});

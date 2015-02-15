@@ -1,1 +1,0 @@
-QuizEngine.module("Data",function(e){e.Quizzes=Backbone.Collection.extend({model:e.Quiz,createQuiz:function(e,t){var n={name:e,questions:[]};return _.each(t,function(e){n.questions.push({question:e})}),this.add(n)}})});
