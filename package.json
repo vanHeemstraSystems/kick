@@ -68,6 +68,7 @@
     "istanbul": ">=0.1.46"
   },
   "scripts": {
+    "start": "node servers/server",    
     "test": "mocha"
   },
   "repository": "git://github.com/iceroboticsltd/kick"
