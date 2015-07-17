@@ -47,6 +47,7 @@
     "ejs": "*",
     "i18n-2": ">=0.4.6",
     "mime": ">=1.2.11",
+    "swagger-express-mw": "0.0.x",
     "tacit-server": "^1.0.8007"
   },
   "devDependencies": {
@@ -61,14 +62,15 @@
     "grunt-istanbul": ">=0.2.3",
     "grunt-plato": "~0.1.5",
     "mocha": "*",
-    "supertest": "*",
+    "should": "^5.2.0",
+    "supertest": "^0.15.0",
     "dateformat": "~1.0.3-1.2.3",
     "nodeunit": "*",
     "nue": ">=0.7.0-dev",
     "istanbul": ">=0.1.46"
   },
   "scripts": {
-	"preinstall": "sudo npm install -g strongloop",	
+	"preinstall": "sudo npm install -g swagger",	
     "start": "node servers/server",
     "test": "mocha"
   },
