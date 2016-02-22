@@ -136,7 +136,7 @@ define(['./Base'], function (Base) {
      * Channel
      */
     var ChannelDefinition = function (channelName) {
-        console.log('KICK: ServiceBus ChannelDefinition(channelName) called');  
+        console.log('KICK: ServiceBus ChannelDefinition(channelName) called');
         this.channel = channelName || _ServiceBus.configuration.DEFAULT_CHANNEL;
         this.initialize();
     };   
@@ -466,7 +466,7 @@ define(['./Base'], function (Base) {
      * Functions
      */
     var fireSub = function (subDef, envelope) {
-        console.log('KICK: ServiceBus fireSub(subDef, envelope) called');         
+        console.log('KICK: ServiceBus fireSub(subDef, envelope) called');
         if (!subDef.inactive && _ServiceBus.configuration.resolver.compare(subDef.topic, envelope.topic)) {
             subDef.callback(envelope.data, envelope);
         }
@@ -474,13 +474,13 @@ define(['./Base'], function (Base) {
     var pubInProgress = 0;
     var unSubQueue = [];
     function clearUnSubQueue() {
-        console.log('KICK: ServiceBus clearUnSubQueue() called');         
+        console.log('KICK: ServiceBus clearUnSubQueue() called');
         while (unSubQueue.length) {
             _ServiceBus.unsubscribe(unSubQueue.shift());
         }
     };
     function getSystemMessage(kind, subDef) {
-        console.log('KICK: ServiceBus getSystemMessage(kind, subDef) called');        
+        console.log('KICK: ServiceBus getSystemMessage(kind, subDef) called');
         return {
             channel: _ServiceBus.configuration.SYSTEM_CHANNEL,
             topic: "subscription." + kind,
@@ -492,7 +492,7 @@ define(['./Base'], function (Base) {
         };
     };
     function getPredicate(options) {
-        console.log('KICK: ServiceBus getPredicate(options) called');        
+        console.log('KICK: ServiceBus getPredicate(options) called');
         if (typeof options === "function") {
             return options;
         } else if (!options) {
@@ -535,7 +535,7 @@ define(['./Base'], function (Base) {
         return subDef;
     };
     function publish(envelope) {
-        console.log('KICK: ServiceBus publish(envelope) called');        
+        console.log('KICK: ServiceBus publish(envelope) called');
         ++pubInProgress;
         envelope.channel = envelope.channel || this.configuration.DEFAULT_CHANNEL;
         envelope.timeStamp = new Date();
@@ -559,7 +559,7 @@ define(['./Base'], function (Base) {
         }
     };
     function unsubscribe() {
-        console.log('KICK: ServiceBus unsubscribe() called');        
+        console.log('KICK: ServiceBus unsubscribe() called');
         var idx = 0;
         var subs = Array.prototype.slice.call(arguments, 0);
         var subDef;
@@ -614,11 +614,11 @@ define(['./Base'], function (Base) {
      * ServiceBus Functions
      */
     _ServiceBus.channel = function (channelName) {
-        console.log('KICK: ServiceBus _ServiceBus.channel(channelName) called');        
+        console.log('KICK: ServiceBus _ServiceBus.channel(channelName) called');
         return new ChannelDefinition(channelName);
     };
     _ServiceBus.addWireTap = function (callback) {
-        console.log('KICK: ServiceBus _ServiceBus.addWireTap(callback) called');        
+        console.log('KICK: ServiceBus _ServiceBus.addWireTap(callback) called');
         var self = this;
         self.wireTaps.push(callback);
         return function () {
@@ -637,7 +637,7 @@ define(['./Base'], function (Base) {
         return this;
     };
     _ServiceBus.getSubscribersFor = function (options) {
-        console.log('KICK: ServiceBus _ServiceBus.getSubscribersFor(options) called');        
+        console.log('KICK: ServiceBus _ServiceBus.getSubscribersFor(options) called');
         var result = [];
         _.each(this.subscriptions, function (channel) {
             _.each(channel, function (subList) {
@@ -647,13 +647,13 @@ define(['./Base'], function (Base) {
         return result;
     };
     _ServiceBus.reset = function () {
-        console.log('KICK: ServiceBus _ServiceBus.reset() called');        
+        console.log('KICK: ServiceBus _ServiceBus.reset() called');
         this.unsubscribeFor();
         this.configuration.resolver.reset();
         this.subscriptions = {};
     };
     _ServiceBus.unsubscribeFor = function (options) {
-        console.log('KICK: ServiceBus _ServiceBus.unsubscribeFor(options) called');        
+        console.log('KICK: ServiceBus _ServiceBus.unsubscribeFor(options) called');
         var toDispose = [];
         if (this.subscriptions) {
             toDispose = this.getSubscribersFor(options);

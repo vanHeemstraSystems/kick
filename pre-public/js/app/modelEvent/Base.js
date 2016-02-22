@@ -7,7 +7,7 @@ define(function () {
         this.id = id;
     };
     modelEventBase.prototype = {
-    	// functions go here
+        // functions go here
     };
     return modelEventBase;
 });

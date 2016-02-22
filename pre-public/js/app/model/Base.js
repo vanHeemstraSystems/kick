@@ -30,20 +30,20 @@ define(function () {
             return value;
         },
         setValue: function (key, value) {
-            console.log('CORE: modelBase setValue(key, value) called'); 
-            // To Do: search for key in keyValuePairs and updated its value           
+            console.log('CORE: modelBase setValue(key, value) called');
+            // To Do: search for key in keyValuePairs and updated its value
             // value = value;
         },
         getKeyValuePairs: function () {
-            console.log('CORE: modelBase getKeyValuePairs() called');             
+            console.log('CORE: modelBase getKeyValuePairs() called');
             return this.keyValuePairs;
         },
         setKeyValuePairs: function (keyValuePairs) {
-            console.log('CORE: modelBase setKeyValuePairs(keyValuePairs) called');         
+            console.log('CORE: modelBase setKeyValuePairs(keyValuePairs) called');
             this.keyValuePairs = keyValuePairs;
         },  
         setModelService: function (modelService) {
-            console.log('CORE: modelBase setModelService(modelService) called');          
+            console.log('CORE: modelBase setModelService(modelService) called');
             this.modelService = modelService;
         },
         getModel: function(key) {

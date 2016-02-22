@@ -1,0 +1,143 @@
+/* @import url('http://fonts.googleapis.com/css?family=Fenix'); */
+
+@font-face {
+	font-family: 'Fenix';
+	src: url('../fonts/Fenix-Regular.ttf');
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kdb, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	outline: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html  { overflow-y: scroll; }
+body {
+	font-family: Arial, Tahoma, sans-serif;
+	font-size: 62.5%;
+	line-height: 1;
+	padding-bottom: 55px;
+	/* background: #363636 url('../img/bg/silence.png'); */
+	background-image: radial-gradient(circle closest-corner, #eee 0%, #e0e0e0 100%);
+}
+
+/* These instructions break the SCSS compilation
+:: selection { background: #dae3eb; color: #333; }
+::-moz-selection { background: #dae3eb; color #333; }
+::-webkit-selection { background: dae3eb; color: #333; }
+*/
+
+br { display: block; line-height: 1.6em; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+
+input, textarea {
+	-webkit-font-smooting: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+}
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong, b { font-weight: bold; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+
+h1 {
+	font-family: 'Fenix', Tahoma, sans-serif;
+	color: #dde7f2;
+	font-size: 4.7em;
+	line-height: 1.6em;
+	margin-bottom: 8px;
+	width: 770px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+h1 span {
+	color: #73aded;
+}
+
+h3 {
+	display: block;
+	width: 770px;
+	margin: 0 auto;
+	font-size: 0.6em;
+	line-height: 1.0em;
+	margin-bottom: 18px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1.3em;
+	color: #ccc;
+	text-align: center;
+}
+
+
+p {
+	font-size: 1.4em;
+	line-height: 1.2em;
+	margin-bottom: 10px;
+	color: #fefefe;
+}
+
+/* page structure */
+#wrapper {
+	width: 770px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+
+#content {
+	padding: 8px 15px;
+	padding-bottom: 20px;
+	background: #3a3a3a;
+}
+
+.options {
+	display: block;
+	text-align: right;
+	font-size: 1.2em;
+	line-height: 16px;
+	font-weight: bold;
+	color: #eee;
+	margin-bottom: 8px;
+}
+
+.options .sorticon {
+	position: relative;
+	top: 3px;
+}
+
+.options .sorticon img {
+	opacity: 0.6;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+
+.options .sorticon img:hover {
+	opacity: 1.0;
+}
+
+.options .sorticon.active img {
+	opacity: 1.0;
+}
+
+
+/* ... more ... */

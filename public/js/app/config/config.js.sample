@@ -1,0 +1,59 @@
+/*
+ * Config
+ */
+define(['./Base'], function (Base) {
+    console.log('KICK: config called');
+    var configs = {
+		store_list: {
+			'mydefaultstore': {
+				views: {
+					mydefaultstore: {
+						someKey: 'someValue',
+						htmlSource: '<div id="header"><span class="title first" style="color:#08c">Your</span><span class="title second" style="color:#73ed95;">Company</span></div><br/><div id="wrapper"><span class="options"><a href="#" id="details-list" class="sorticon" title="List View"><img src="http://localhost:2000/themes/mydefaulttheme/img/details-list.png" alt="list"></a><a href="#" id="thumbnails-list" class="sorticon active" title="Thumbnail View"><img src="http://localhost:2000/themes/mydefaulttheme/img/thumbnails-list.png" alt="thumbnails"></a></span><div id="content"><ul id="listdisplay" class="clearfix thumbview"><li class="clearfix"><span class="listimg"><a id="app-a" href="about:blank" target="_blank"><img style="box-shadow: 0 0 0 1px solid #d4ebdb;" src="http://localhost:2000/themes/mydefaulttheme/img/a_1x.png"></a></span><span class="innercontent"><h2 style="color:#d4ebdb;">A</h2><p>Something else for use.</p></span></li><!-- row #1 --><li class="clearfix"><span class="listimg"><a id="app-b" href="about:blank" target="_blank"><img style="box-shadow: 0 0 0 1px solid #d4ebdb;" src="http://localhost:2000/themes/mydefaulttheme/img/b_1x.png"></a></span><span class="innercontent"><h2 style="color:#d4ebdb;">B</h2><p>Something else for use.</p></span></li><!-- row #2 --><li class="clearfix"><span class="listimg"><a id="app-calculator" href="http://localhost:4000/?app=calculator" target="_blank"><img src="http://localhost:2000/themes/mydefaulttheme/img/calculator_1x.png"></a></span><span class="innercontent"><h2>Calculator</h2><p>A calculator for use.</p></span></li><!-- row #3 --><li class="clearfix"><span class="listimg"><a id="app-slider" href="http://localhost:4000/?app=slider" target="_blank"><img src="http://localhost:2000/themes/mydefaulttheme/img/slider_1x.png"></a></span><span class="innercontent"><h2>Slider</h2><p>A slider for use.</p></span></li><!-- row #4 --><li class="clearfix"><span class="listimg"><a id="app-todo" href="http://localhost:4000/?app=todo" target="_blank"><img src="http://localhost:2000/themes/mydefaulttheme/img/todo_1x.png"></a></span><span class="innercontent"><h2>ToDo</h2><p>A todo for use.</p></span></li><!-- row #5 --></ul></div></div>',
+						scriptSource: 'js/mydefaultstore/views/mydefaultstore.js',
+						subscriptions: [
+							{
+								channel: 'mydefaultstore',
+								topic: 'doneCalculator'
+							}
+						]
+					}
+				},
+				apps: {
+					calculator: {
+						someKey: 'someValue',
+						scriptSource: 'js/calculator/apps/calculator.js',
+						subscriptions: [
+							{
+								channel: 'mydefaultstore',
+								topic: 'doCalculator'
+							}
+						]
+					},
+					slider: {
+						someKey: 'someValue',
+						scriptSource: 'js/slider/apps/slider.js',
+						subscriptions: [
+							{
+								channel: 'mydefaultstore',
+								topic: 'doSlider'
+							}
+						]
+					},
+					todo: {
+						someKey: 'someValue',
+						scriptSource: 'js/todo/apps/todo.js',
+						subscriptions: [
+							{
+								channel: 'mydefaultstore',
+								topic: 'doToDo'
+							}
+						]
+					}
+				}
+			}
+		}
+	};
+    var _Config = new Base(configs);
+    return _Config;
+});
