@@ -1,0 +1,12 @@
+{
+	"host": "localhost",
+	"port": 8200,
+	"auth": {
+		"enabled": false,
+		"salt": "",
+		"user": "",
+		"password": ""
+	},
+	"apps": "apps.json",
+	"bin": "node"
+}
