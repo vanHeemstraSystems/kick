@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Your Company - Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="./css/mocha.css" />
+    <script src="./js/lib/jquery.js" type="text/javascript"></script>
+    <script src="./js/lib/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script>
+      function assert(expr, msg) {
+        if (!expr) throw new Error(msg || 'failed');
+      }
+    </script>
+    <script src="../js/string_calculator.js"></script>
+    <script src="./js/spec/string_calculator_spec.js"></script>
+    <script>
+      onload = function(){
+        var runner = mocha.run();
+        // runner.globals(['foo', 'bar', 'baz']);
+
+        // runner.on('test end', function(test){
+        //   console.log(test.fullTitle());
+        // });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>
