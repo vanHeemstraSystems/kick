@@ -12,6 +12,9 @@ Kick is the **monitor** layer.
 *See [kick readme] [1] in the docs kick docs subfolder.*
 [1]: ../../../docs/blob/master/kick/README.md "kick readme"
 
+## Supervizor - A NodeJS manager to spawn/stop/manage node application.
+See also https://github.com/oOthkOo/supervizer
+
 ##Licence
 (The MIT License)
 
