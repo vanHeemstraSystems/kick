@@ -1,0 +1,19 @@
+To test, run the following command whilst in the directory where test.js resides:
+
+mocha test.js
+
+To use different report types, run the following command whilst in the directory where test.js resides:
+
+mocha test.js -R list
+
+Or
+
+mocha test.js -R spec
+
+NOTE: mocha needs to have been install globally as a node module in the root directory (where package.json resides). So run the following command in the root directory:
+
+npm install -g mocha
+
+P.S. You may have to be 'administrator', so in that case run:
+
+sudo npm install -g mocha 
