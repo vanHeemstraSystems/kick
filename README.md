@@ -12,10 +12,10 @@ Kick is the **monitor** layer.
 *See [kick readme] [1] in the docs kick docs subfolder.*
 [1]: ../../../docs/blob/master/kick/README.md "kick readme"
 
-## Supervizor - A NodeJS manager to spawn/stop/manage node application.
+### Supervizor - A NodeJS manager to spawn/stop/manage node application.
 See also https://github.com/oOthkOo/supervizer
 
-## Fluentd - An open source data collector, which lets you unify the data collection (e.g. logs) and consumption for a better use and understanding of data.
+### Fluentd - An open source data collector, which lets you unify the data collection (e.g. logs) and consumption for a better use and understanding of data.
 See also http://www.fluentd.org/
 
 ##Licence
